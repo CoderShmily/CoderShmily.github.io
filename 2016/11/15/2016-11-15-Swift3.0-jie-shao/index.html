@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://codershmily.github.io/2016/11/15/2016-11-15-Swift3.0-jie-shao/index.html">
 <meta property="og:site_name" content="my blog test">
 <meta property="og:description" content="Swift3.0相关的语法介绍">
-<meta property="og:updated_time" content="2017-04-03T10:54:18.000Z">
+<meta property="og:updated_time" content="2017-04-03T10:56:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift3.0学习笔记">
 <meta name="twitter:description" content="Swift3.0相关的语法介绍">
@@ -100,12 +100,10 @@
 <li><code>AnyObject</code> ： 一个具体的协议，协议里面没有内容，默认情况下，所有的类，都遵循了这个协议</li>
 <li><code>NSObject</code> ： <code>NSObject</code>类</li>
 </ol>
-<p>#条件判断</p>
-<p>swift中没有非零即真和零为假的说法，只有严格的<code>Bool(true/false)</code></p>
-<p>##1. if的使用<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">1</span></div><div class="line"><span class="keyword">if</span> a == <span class="number">1</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"test"</span>)</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>  a == <span class="number">2</span>&#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"sss"</span>)</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"wwqw"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>##2. 三目运算符<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a == <span class="number">1</span> ? <span class="built_in">print</span>(<span class="string">"first"</span>) : <span class="built_in">print</span>(<span class="string">"hello"</span>)</div></pre></td></tr></table></figure></p>
-<p>##3. guard</p>
-<ol>
+<h1 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h1><p>swift中没有非零即真和零为假的说法，只有严格的<code>Bool(true/false)</code></p>
+<h2 id="1-if的使用"><a href="#1-if的使用" class="headerlink" title="1. if的使用"></a>1. if的使用</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">1</span></div><div class="line"><span class="keyword">if</span> a == <span class="number">1</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"test"</span>)</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>  a == <span class="number">2</span>&#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"sss"</span>)</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"wwqw"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-三目运算符"><a href="#2-三目运算符" class="headerlink" title="2. 三目运算符"></a>2. 三目运算符</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a == <span class="number">1</span> ? <span class="built_in">print</span>(<span class="string">"first"</span>) : <span class="built_in">print</span>(<span class="string">"hello"</span>)</div></pre></td></tr></table></figure>
+<h2 id="3-guard"><a href="#3-guard" class="headerlink" title="3. guard"></a>3. guard</h2><ol>
 <li><code>guard</code>条件成立，继续往下走，不成立执行<code>else</code>里面的语句</li>
 <li><code>else</code>后要跳出语句，配合<code>return</code>,<code>continue</code>,<code>break</code>,<code>throw</code>等使用</li>
 </ol>
