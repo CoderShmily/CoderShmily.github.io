@@ -5,19 +5,16 @@
   
   <title>KVC 和 KVO深入 | my blog test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="KVC概述1.什么是KVC？KVC即NSKeyValueCoding,键/值编码,一个非正式的Protocol,以字符串的形式向对象发送消息，而不是通过调用存取方法，直接或通过实例变量访问的机制。
-valueForKey:首先查找以键-key或-isKey命名的getter方法。如果不存在getter方法（假如我们没有通过@synthesize提供存取方法），它将在对象内部查找名为_key或ke">
+  <meta name="description" content="KVC 和 KVO深入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KVC 和 KVO深入">
 <meta property="og:url" content="http://codershmily.github.io/2015/05/03/2015-05-03-kvc-he-kvoshen-ru/index.html">
 <meta property="og:site_name" content="my blog test">
-<meta property="og:description" content="KVC概述1.什么是KVC？KVC即NSKeyValueCoding,键/值编码,一个非正式的Protocol,以字符串的形式向对象发送消息，而不是通过调用存取方法，直接或通过实例变量访问的机制。
-valueForKey:首先查找以键-key或-isKey命名的getter方法。如果不存在getter方法（假如我们没有通过@synthesize提供存取方法），它将在对象内部查找名为_key或ke">
-<meta property="og:updated_time" content="2017-04-03T10:36:01.000Z">
+<meta property="og:description" content="KVC 和 KVO深入">
+<meta property="og:updated_time" content="2017-04-03T10:45:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KVC 和 KVO深入">
-<meta name="twitter:description" content="KVC概述1.什么是KVC？KVC即NSKeyValueCoding,键/值编码,一个非正式的Protocol,以字符串的形式向对象发送消息，而不是通过调用存取方法，直接或通过实例变量访问的机制。
-valueForKey:首先查找以键-key或-isKey命名的getter方法。如果不存在getter方法（假如我们没有通过@synthesize提供存取方法），它将在对象内部查找名为_key或ke">
+<meta name="twitter:description" content="KVC 和 KVO深入">
   
     <link rel="alternate" href="/atom.xml" title="my blog test" type="application/atom+xml">
   
@@ -96,7 +93,8 @@ valueForKey:首先查找以键-key或-isKey命名的getter方法。如果不存�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
+        <p>KVC 和 KVO深入</p>
+<a id="more"></a>
 <h3 id="KVC概述"><a href="#KVC概述" class="headerlink" title="KVC概述"></a>KVC概述</h3><h4 id="1-什么是KVC？"><a href="#1-什么是KVC？" class="headerlink" title="1.什么是KVC？"></a>1.什么是KVC？</h4><p>KVC即NSKeyValueCoding,键/值编码,一个非正式的Protocol,以字符串的形式向对象发送消息，而不是通过调用存取方法，直接或通过实例变量访问的机制。</p>
 <p>valueForKey:首先查找以键-key或-isKey命名的getter方法。如果不存在getter方法（假如我们没有通过@synthesize提供存取方法），它将在对象内部查找名为_key或key的实例变量。<br>对于KVC，Cocoa自动放入和取出标量值（int，float和struct）放入NSNumber或NSValue中；当使用-setValue:ForKey:时，它自动将标量值从这些对象中取出。仅KVC具有这种自动包装功能，常规方法调用和属性语法不具备该功能。</p>
 <p>-setValue:ForKey:的工作方式和-valueForKey:相同。它首先查找名称的setter方法，如果不存在setter方法，它将在类中查找名为_key或key的实例变量。</p>
