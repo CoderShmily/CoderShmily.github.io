@@ -1,15 +1,11 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head prefix="og: http://ogp.me/ns#">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="description" content="我是description">
-    <title>Objective-C Runtime(一) 概述 | CoderShmily&#39;s Blog</title>
-
-    <!-- Open Graph -->
-    <meta name="description" content="Runtime常用方法和一些应用">
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Objective-C Runtime(一) 概述 | CoderShmily&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Runtime常用方法和一些应用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C Runtime(一) 概述">
 <meta property="og:url" content="http://codershmily.github.io/2015/05/05/2015-05-05-runtime-gai-shu/index.html">
@@ -19,128 +15,50 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C Runtime(一) 概述">
 <meta name="twitter:description" content="Runtime常用方法和一些应用">
-
-    <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Person",
-  "email": "mailto:undefined",
-  "image": "undefined",
-  "name": "CoderShmily",
-  "url": "http://codershmily.github.io"
-}
-</script>
-    <script>
-    var algoliaEnabled = false;
-    
-</script>
-
-    
-
-    
-    
-        <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    
-    
-    
-        <!-- stylesheets list from config.yml -->
-        
-        <link rel="stylesheet" href="/css/aloha.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
-        
-    
-
+  
+    <link rel="alternate" href="/atom.xml" title="CoderShmily&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body id="body" style="margin-bottom: 0;" class="pushable">
 
-    <div class="ui top fixed menu">
-        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
-    </div>
+<body>
+  <div id="container">
+    <div id="wrap">
+      
+      <div class="outer">
+        <section id="main"><article id="post-2015-05-05-runtime-gai-shu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/05/2015-05-05-runtime-gai-shu/" class="article-date">
+  <time datetime="2015-05-05T09:55:39.000Z" itemprop="datePublished">2015-05-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
 
-    <div id="menu-sidebar" class="ui left vertical sidebar menu">
-
-    <div id="sidebar-top">
-        <div class="content">
-            <h3>CoderShmily&#39;s Blog</h3>
-        </div>
-    </div>
-    <div class="ui container sidebar-card">
-    <div class="ui people shape content">
-        <div class="active side">
-            <div class="ui card">
-                <div class="image">
-                    <img class="ui medium bordered image" src="/images/avatar.jpg">
-                </div>
-                <div class="content">
-                    <a class="header">CoderShmily</a>
-                    
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                        
-                    </div>
-
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
+  </div>
+  <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Objective-C Runtime(一) 概述
+    </h1>
+  
 
+      </header>
     
-
-    
-    <a href="/index.html" class="item" >
-        <i class="home icon"></i>
-        首页
-    </a>
-
-    
-
-    
-</div>
-
-    <div class="pusher body-content">
-        <div id="content" class="ui main container">
-            <!--<div class="ui one column grid">-->
-                <!--<div class="column">-->
-                    <!--<div class="ui main container">-->
-                        <div id="post-2015-05-05-runtime-gai-shu" class="ui main container article-type-post">
-
-    
-
-    <div class="ui divided grid">
-
-        <div class="two column row" id="article-content">
-
-            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
-                
-
-<h1 class="ui header">
-    
-    Objective-C Runtime(一) 概述
-</h1>
-
-
-
-                <div class="article-inner">
-
-                    <div class="article-entry" itemprop="articleBody">
-                        
-                        <p>Runtime常用方法和一些应用</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Runtime常用方法和一些应用</p>
 <a id="more"></a>
 <h3 id="Runtime方法列表"><a href="#Runtime方法列表" class="headerlink" title="Runtime方法列表"></a>Runtime方法列表</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># class</span></div><div class="line">class_getInstanceMethod -&gt; Method class_getInstanceMethod(Class cls, SEL name);<span class="comment">// 返回给定类的指定的实例方法</span></div><div class="line">class_addMethod -&gt; <span class="built_in">BOOL</span> class_addMethod(Class cls, SEL name, IMP imp, <span class="keyword">const</span> <span class="keyword">char</span> *types);<span class="comment">// 通过方法名SEL+原来的IMP实现给类添加新方法</span></div><div class="line">class_copyPropertyList -&gt; objc_property_t *class_copyPropertyList(Class cls, <span class="keyword">unsigned</span> <span class="keyword">int</span> *outCount) <span class="comment">// 获取类的属性列表</span></div><div class="line"></div><div class="line"><span class="meta"># method</span></div><div class="line"></div><div class="line">method_getTypeEncoding -&gt; <span class="keyword">const</span> <span class="keyword">char</span> *method_getTypeEncoding(Method m);<span class="comment">// Returns a string describing a method's parameter and return types.</span></div><div class="line">method_getImplementation -&gt; IMP method_getImplementation(Method m);<span class="comment">//获取Method中的IMP</span></div><div class="line">method_exchangeImplementations -&gt; method_exchangeImplementations(Method m1, Method m2); <span class="comment">//Returns a string describing a method's parameter and return types.</span></div><div class="line">method_setImplementation -&gt; IMP method_setImplementation(Method m, IMP imp); <span class="comment">// Sets the implementation of a method.</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta"># 关联对象</span></div><div class="line">objc_setAssociatedObject -&gt; objc_setAssociatedObject(<span class="keyword">id</span> object, <span class="keyword">const</span> <span class="keyword">void</span> *key, <span class="keyword">id</span> value, objc_AssociationPolicy policy);<span class="comment">//Sets an associated value for a given object using a given key and association policy.</span></div><div class="line">objc_getAssociatedObject -&gt; <span class="keyword">id</span> objc_getAssociatedObject(<span class="keyword">id</span> object, <span class="keyword">const</span> <span class="keyword">void</span> *key);<span class="comment">// Returns the value associated with a given object for a given key.</span></div><div class="line">objc_removeAssociatedObjects -&gt; objc_removeAssociatedObjects(<span class="keyword">id</span> object);<span class="comment">// 注意:Removes all associations for a given object.</span></div><div class="line"></div><div class="line"><span class="meta"># 类</span></div><div class="line">object_isClass -&gt; <span class="built_in">BOOL</span> object_isClass(<span class="keyword">id</span> obj);<span class="comment">//Returns whether an object is a class object.</span></div><div class="line">object_getClass -&gt; Class object_getClass(<span class="keyword">id</span> obj);<span class="comment">//Returns the class of an object.</span></div><div class="line">object_getClassName -&gt; <span class="keyword">const</span> <span class="keyword">char</span> *object_getClassName(<span class="keyword">id</span> obj);<span class="comment">//Returns the class name of a given object.</span></div><div class="line">object_setClass -&gt; Class object_setClass(<span class="keyword">id</span> obj, Class cls);<span class="comment">//Sets the class of an object.</span></div><div class="line">objc_getMetaClass -&gt; Class objc_getMetaClass(<span class="keyword">const</span> <span class="keyword">char</span> *name);<span class="comment">// 原类</span></div><div class="line"></div><div class="line"><span class="meta"># 实例变量</span></div><div class="line">object_getIvar -&gt; <span class="keyword">id</span> object_getIvar(<span class="keyword">id</span> obj, Ivar ivar);<span class="comment">//Reads the value of an instance variable in an object.</span></div><div class="line">object_setIvar -&gt; object_setIvar(<span class="keyword">id</span> obj, Ivar ivar, <span class="keyword">id</span> value);<span class="comment">//Sets the value of an instance variable in an object.</span></div><div class="line"></div><div class="line"><span class="comment">// Changes the value of an 实例变量 of a 实例</span></div><div class="line">object_getInstanceVariable -&gt; Ivar object_getInstanceVariable(<span class="keyword">id</span> obj, <span class="keyword">const</span> <span class="keyword">char</span> *name, <span class="keyword">void</span> **outValue)</div><div class="line">object_setInstanceVariable -&gt; Ivar object_setInstanceVariable(<span class="keyword">id</span> obj, <span class="keyword">const</span> <span class="keyword">char</span> *name, <span class="keyword">void</span> *value);</div><div class="line"></div><div class="line"><span class="meta"># 属性</span></div><div class="line">property_getName -&gt; <span class="keyword">const</span> <span class="keyword">char</span> *property_getName(objc_property_t property) <span class="comment">// 传入上面的数组(指针)获取每个属性的名称</span></div><div class="line">property_getAttributes -&gt; <span class="keyword">const</span> <span class="keyword">char</span> *property_getAttributes(objc_property_t property) <span class="comment">// 返回属性的名称和@encode类型字符串</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta"># 发送消息</span></div><div class="line">objc_msgSend -&gt; objc_msgSend(<span class="keyword">id</span> obj, SEL name);</div></pre></td></tr></table></figure>
 <h3 id="获取列表-属性、方法、协议"><a href="#获取列表-属性、方法、协议" class="headerlink" title="获取列表(属性、方法、协议)"></a>获取列表(属性、方法、协议)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></div><div class="line"></div><div class="line"> <span class="keyword">unsigned</span> <span class="keyword">int</span> count;</div><div class="line">    <span class="comment">//获取属性列表</span></div><div class="line">    objc_property_t *propertyList = class_copyPropertyList([<span class="keyword">self</span> <span class="keyword">class</span>], &amp;count);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;count; i++) &#123;</div><div class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *propertyName = property_getName(propertyList[i]);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"property----&gt;%@"</span>, [<span class="built_in">NSString</span> stringWithUTF8String:propertyName]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//获取方法列表</span></div><div class="line">    Method *methodList = class_copyMethodList([<span class="keyword">self</span> <span class="keyword">class</span>], &amp;count);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i; i&lt;count; i++) &#123;</div><div class="line">        Method method = methodList[i];</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"method----&gt;%@"</span>, <span class="built_in">NSStringFromSelector</span>(method_getName(method)));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//获取成员变量列表</span></div><div class="line">    Ivar *ivarList = class_copyIvarList([<span class="keyword">self</span> <span class="keyword">class</span>], &amp;count);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i; i&lt;count; i++) &#123;</div><div class="line">        Ivar myIvar = ivarList[i];</div><div class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *ivarName = ivar_getName(myIvar);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Ivar----&gt;%@"</span>, [<span class="built_in">NSString</span> stringWithUTF8String:ivarName]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//获取协议列表</span></div><div class="line">    __<span class="keyword">unsafe_unretained</span> Protocol **protocolList = class_copyProtocolList([<span class="keyword">self</span> <span class="keyword">class</span>], &amp;count);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">unsigned</span> <span class="keyword">int</span> i; i&lt;count; i++) &#123;</div><div class="line">        Protocol *myProtocal = protocolList[i];</div><div class="line">        <span class="keyword">const</span> <span class="keyword">char</span> *protocolName = protocol_getName(myProtocal);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"protocol----&gt;%@"</span>, [<span class="built_in">NSString</span> stringWithUTF8String:protocolName]);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
@@ -202,109 +120,132 @@
 <li>最后，据说这个技术很危险，谨慎使用。<br></li>
 </ul>
 
-                        
-                    </div>
-
-                    
-                    
-                    
-
-                    <div class="description post-description">
-    <span class="post-description-item">
-        <time datetime="2015-05-05T09:55:39.000Z" itemprop="datePublished">2015-05-05</time>
-
-    </span>
-    <span class="post-description-item">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://codershmily.github.io/2015/05/05/2015-05-05-runtime-gai-shu/" data-id="cj11z9je40005uczjaajfcqzl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/06/2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-    </span>
-</div>
+          Objective-C Runtime(三) 消息传递
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/04/2015-05-04-runtime-dui-xiang-mo-xing/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Objective-C Runtime(二) 对象模型</div>
+    </a>
+  
+</nav>
 
-                </div>
-                
-                <div id="pagination" class="nav-web ui text container pagination">
+  
+</article>
 
-    <div class="ui stackable two column divided grid container">
-        <div class="row">
-            <div class="column nav-left">
-                
-
-                <a href="/2015/05/06/2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di/" class="ui tiny button">
-
-                    <i class="angle left icon"></i>
-                    
-                    Objective-C Runtime(三) 消息传递
-                    
-
-                </a>
-
-                
-            </div>
-            <div class="column nav-right">
-                
-
-                <a href="/2015/05/04/2015-05-04-runtime-dui-xiang-mo-xing/" class="ui tiny button">
-                    
-                    Objective-C Runtime(二) 对象模型
-                    
-                    <i class="angle right icon"></i></a>
-                
-            </div>
-        </div>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
     </div>
+  </div>
 
-</div>
-                
-            </div>
 
-            
-            <div class="three wide computer three wide tablet column">
+  
+    
 
-                <div class="ui sticky article-toc" id="article-toc">
-                    <!-- toc -->
-                    <ol class="ui ordered list"><li><a href="#Runtime方法列表"><span>Runtime方法列表</span></a></li><li><a href="#获取列表-属性、方法、协议"><span>获取列表(属性、方法、协议)</span></a></li><li><a href="#相关的定义"><span>相关的定义</span></a></li><li><a href="#类在runtime中的表示"><span>类在runtime中的表示</span></a></li><li><a href="#方法调用在运行时的过程"><span>方法调用在运行时的过程</span></a><ol><li><a href="#拦截调用"><span>拦截调用</span></a></li><li><a href="#动态添加方法"><span>动态添加方法</span></a></li><li><a href="#关联对象"><span>关联对象</span></a><ol><li><a href="#注意：这里面我们把getAssociatedObject方法的地址作为唯一的key，-cmd代表当前调用方法的地址。"><span>注意：这里面我们把getAssociatedObject方法的地址作为唯一的key，_cmd代表当前调用方法的地址。</span></a></li></ol></li></ol></li><li><a href="#方法交换"><span>方法交换</span></a></li></ol>
-                </div>
-
-            </div>
-            
-
-        </div>
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li></ul>
     </div>
-</div>
+  </div>
 
 
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        </div>
-        <div class="ui vertical footer segment">
-    <div class="ui center aligned container">
-        <div class="ui inverted section divider"></div>
-        &copy; 2017 <a href="/">CoderShmily</a>,
-        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
-                href="http://hexo.io/" target="_blank">Hexo</a>.
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/15/2016-11-15-Swift3.0-jie-shao/">Swift3.0学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/15/2015-05-15-sdwebimageyuan-ma-jie-xi/">SDWebImage源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/07/2015-05-07-objective-c-runtime-si-dong-tai-fang-fa-jue-yi-dynamic-method-resolution/">Objective-C Runtime(四) 动态方法决议</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/06/2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di/">Objective-C Runtime(三) 消息传递</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/05/2015-05-05-runtime-gai-shu/">Objective-C Runtime(一) 概述</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
+  </div>
 
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 CoderShmily<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
 
 
 
 
-<!-- scripts list from theme config.yml -->
-
-<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-
-<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
-
-<script src="/js/semantic-ui-algolia.js"></script>
-
-<script src="/js/aloha-events.js"></script>
-
-
-
+  </div>
 </body>
 </html>

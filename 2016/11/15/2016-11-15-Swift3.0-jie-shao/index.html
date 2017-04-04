@@ -1,15 +1,11 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head prefix="og: http://ogp.me/ns#">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="description" content="我是description">
-    <title>Swift3.0学习笔记 | CoderShmily&#39;s Blog</title>
-
-    <!-- Open Graph -->
-    <meta name="description" content="总结一些 Swift3.0学习笔记">
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Swift3.0学习笔记 | CoderShmily&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="总结一些 Swift3.0学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift3.0学习笔记">
 <meta property="og:url" content="http://codershmily.github.io/2016/11/15/2016-11-15-Swift3.0-jie-shao/index.html">
@@ -19,128 +15,50 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift3.0学习笔记">
 <meta name="twitter:description" content="总结一些 Swift3.0学习笔记">
-
-    <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Person",
-  "email": "mailto:undefined",
-  "image": "undefined",
-  "name": "CoderShmily",
-  "url": "http://codershmily.github.io"
-}
-</script>
-    <script>
-    var algoliaEnabled = false;
-    
-</script>
-
-    
-
-    
-    
-        <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    
-    
-    
-        <!-- stylesheets list from config.yml -->
-        
-        <link rel="stylesheet" href="/css/aloha.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
-        
-    
-
+  
+    <link rel="alternate" href="/atom.xml" title="CoderShmily&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body id="body" style="margin-bottom: 0;" class="pushable">
 
-    <div class="ui top fixed menu">
-        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
-    </div>
+<body>
+  <div id="container">
+    <div id="wrap">
+      
+      <div class="outer">
+        <section id="main"><article id="post-2016-11-15-Swift3.0-jie-shao" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/15/2016-11-15-Swift3.0-jie-shao/" class="article-date">
+  <time datetime="2016-11-15T12:11:01.000Z" itemprop="datePublished">2016-11-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Swift/">Swift</a>
+  </div>
 
-    <div id="menu-sidebar" class="ui left vertical sidebar menu">
-
-    <div id="sidebar-top">
-        <div class="content">
-            <h3>CoderShmily&#39;s Blog</h3>
-        </div>
-    </div>
-    <div class="ui container sidebar-card">
-    <div class="ui people shape content">
-        <div class="active side">
-            <div class="ui card">
-                <div class="image">
-                    <img class="ui medium bordered image" src="/images/avatar.jpg">
-                </div>
-                <div class="content">
-                    <a class="header">CoderShmily</a>
-                    
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                        
-                    </div>
-
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
+  </div>
+  <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift3.0学习笔记
+    </h1>
+  
 
+      </header>
     
-
-    
-    <a href="/index.html" class="item" >
-        <i class="home icon"></i>
-        首页
-    </a>
-
-    
-
-    
-</div>
-
-    <div class="pusher body-content">
-        <div id="content" class="ui main container">
-            <!--<div class="ui one column grid">-->
-                <!--<div class="column">-->
-                    <!--<div class="ui main container">-->
-                        <div id="post-2016-11-15-Swift3.0-jie-shao" class="ui main container article-type-post">
-
-    
-
-    <div class="ui divided grid">
-
-        <div class="two column row" id="article-content">
-
-            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
-                
-
-<h1 class="ui header">
-    
-    Swift3.0学习笔记
-</h1>
-
-
-
-                <div class="article-inner">
-
-                    <div class="article-entry" itemprop="articleBody">
-                        
-                        <p>总结一些 Swift3.0学习笔记</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>总结一些 Swift3.0学习笔记</p>
 <a id="more"></a>
 <h1 id="Any-AnyObject-NSObject"><a href="#Any-AnyObject-NSObject" class="headerlink" title="Any AnyObject NSObject"></a>Any AnyObject NSObject</h1><p><code>Int</code> <code>Double</code> <code>String</code> <code>struct</code>都是结构体</p>
 <ol>
@@ -252,102 +170,123 @@
 <li>使用注意：需要使用<code>public</code>关键字修饰资源文建中，需要暴露给外界的内容</li>
 </ol>
 
-                        
-                    </div>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://codershmily.github.io/2016/11/15/2016-11-15-Swift3.0-jie-shao/" data-id="cj11zvdxp00003azj9neofevg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/05/15/2015-05-15-sdwebimageyuan-ma-jie-xi/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SDWebImage源码解析</div>
+    </a>
+  
+</nav>
 
-                    
-                    
-                    
+  
+</article>
 
-                    <div class="description post-description">
-    <span class="post-description-item">
-        <time datetime="2016-11-15T12:11:01.000Z" itemprop="datePublished">2016-11-15</time>
-
-    </span>
-    <span class="post-description-item">
+</section>
         
-    </span>
-</div>
-
-                </div>
-                
-                <div id="pagination" class="nav-web ui text container pagination">
-
-    <div class="ui stackable two column divided grid container">
-        <div class="row">
-            <div class="column nav-left">
-                
-
-                <a class="ui tiny button disabled"><i class="angle left icon"></i>前一篇</a>
-
-                
-            </div>
-            <div class="column nav-right">
-                
-
-                <a href="/2015/05/15/2015-05-15-sdwebimageyuan-ma-jie-xi/" class="ui tiny button">
-                    
-                    SDWebImage源码解析
-                    
-                    <i class="angle right icon"></i></a>
-                
-            </div>
-        </div>
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
     </div>
+  </div>
 
-</div>
-                
-            </div>
 
-            
-            <div class="three wide computer three wide tablet column">
+  
+    
 
-                <div class="ui sticky article-toc" id="article-toc">
-                    <!-- toc -->
-                    <ol class="ui ordered list"><li><a href="#Any-AnyObject-NSObject"><span>Any AnyObject NSObject</span></a></li><li><a href="#条件判断"><span>条件判断</span></a><ol><li><a href="#1-if的使用"><span>1. if的使用</span></a></li><li><a href="#2-三目运算符"><span>2. 三目运算符</span></a></li><li><a href="#3-guard"><span>3. guard</span></a></li><li><a href="#4-switch的用法"><span>4. switch的用法</span></a><ol><li><a href="#1-switch与基本数据"><span>1. switch与基本数据</span></a></li><li><a href="#2-switch与区间"><span>2. switch与区间</span></a></li><li><a href="#3-switch与枚举"><span>3. switch与枚举</span></a></li><li><a href="#4-switch与元组"><span>4. switch与元组</span></a></li></ol></li></ol></li><li><a href="#循环"><span>循环</span></a><ol><li><a href="#1-for循环"><span>1. for循环</span></a></li><li><a href="#2-while循环"><span>2. while循环</span></a><ol><li><a href="#1-while循环"><span>1. while循环</span></a></li><li><a href="#2-repeat-while循环"><span>2. repeat~while循环</span></a></li></ol></li></ol></li><li><a href="#字符串处理"><span>字符串处理</span></a></li><li><a href="#数组"><span>数组</span></a></li><li><a href="#字典"><span>字典</span></a></li><li><a href="#元组"><span>元组</span></a></li><li><a href="#可选类型"><span>可选类型</span></a><ol><li><a href="#2-可选类型-（才能赋值为nil）"><span>2. 可选类型 （才能赋值为nil）</span></a></li><li><a href="#3-四种方式使用可选类型的值"><span>3. 四种方式使用可选类型的值</span></a><ol><li><a href="#1-判断-直接解包"><span>1. 判断 + 直接解包</span></a></li><li><a href="#2-可选绑定"><span>2. 可选绑定</span></a></li><li><a href="#3-guard守护"><span>3. guard守护</span></a></li><li><a href="#4-空合运算符"><span>4. 空合运算符</span></a></li></ol></li></ol></li><li><a href="#类型转换"><span>类型转换</span></a></li><li><a href="#函数"><span>函数</span></a><ol><li><a href="#1-函数的四种类型"><span>1. 函数的四种类型</span></a><ol><li><a href="#1-无参数，无返回值"><span>1. 无参数，无返回值</span></a></li><li><a href="#2-无参数，有返回值"><span>2. 无参数，有返回值</span></a></li><li><a href="#3-有参数，无返回值"><span>3. 有参数，无返回值</span></a></li><li><a href="#4-有参数，有返回值"><span>4. 有参数，有返回值</span></a></li></ol></li><li><a href="#函数其他注意"><span>函数其他注意</span></a><ol><li><a href="#1-省略第一个外部参数的名字"><span>1. 省略第一个外部参数的名字</span></a></li><li><a href="#2-设置参数默认值"><span>2. 设置参数默认值</span></a></li><li><a href="#3-设置可变参数"><span>3. 设置可变参数</span></a></li><li><a href="#4-修改内部参数的值"><span>4. 修改内部参数的值</span></a></li><li><a href="#5-设置参数为地址传递"><span>5. 设置参数为地址传递</span></a></li><li><a href="#6-函数嵌套"><span>6. 函数嵌套</span></a></li><li><a href="#7-函数的类型"><span>7. 函数的类型</span></a></li><li><a href="#8-区分不同函数"><span>8. 区分不同函数</span></a></li></ol></li></ol></li><li><a href="#枚举"><span>枚举</span></a></li><li><a href="#结构体"><span>结构体</span></a><ol><li><a href="#1-结构体基本使用"><span>1. 结构体基本使用</span></a></li><li><a href="#2-结构体扩充构造函数"><span>2. 结构体扩充构造函数</span></a></li></ol></li><li><a href="#类"><span>类</span></a><ol><li><a href="#1-类的声明初始化"><span>1. 类的声明初始化</span></a></li><li><a href="#2-类的属性和方法"><span>2. 类的属性和方法</span></a></li><li><a href="#3-类的继承之KVC使用"><span>3. 类的继承之KVC使用</span></a></li><li><a href="#4-类的循环引用"><span>4. 类的循环引用</span></a></li><li><a href="#5-结构体和类的区别"><span>5. 结构体和类的区别</span></a></li><li><a href="#6-OC中使用Swift的类和结构体"><span>6. OC中使用Swift的类和结构体</span></a></li><li><a href="#7-Swift中调用OC"><span>7. Swift中调用OC</span></a></li></ol></li><li><a href="#三大特性"><span>三大特性</span></a></li><li><a href="#可选链"><span>可选链</span></a></li><li><a href="#协议"><span>协议</span></a><ol><li><a href="#1-协议的基本使用"><span>1.协议的基本使用</span></a></li><li><a href="#2-协议中使用代理"><span>2. 协议中使用代理</span></a></li><li><a href="#3-协议中的可选"><span>3. 协议中的可选</span></a></li></ol></li><li><a href="#闭包"><span>闭包</span></a><ol><li><a href="#1-闭包的基本使用"><span>1.闭包的基本使用</span></a></li><li><a href="#2-尾随闭包和逃逸闭包"><span>2. 尾随闭包和逃逸闭包</span></a></li><li><a href="#3-闭包的循环引用（4中解决方式）"><span>3. 闭包的循环引用（4中解决方式）</span></a></li></ol></li><li><a href="#懒加载"><span>懒加载</span></a></li><li><a href="#注释"><span>注释</span></a></li><li><a href="#访问权限"><span>访问权限</span></a><ol><li><a href="#访问修饰符"><span>访问修饰符</span></a></li></ol></li><li><a href="#方法抛出异常"><span>方法抛出异常</span></a></li><li><a href="#Playground"><span>Playground</span></a><ol><li><a href="#1-Playground异步执行"><span>1. Playground异步执行</span></a></li><li><a href="#2-MarkDown语法"><span>2. MarkDown语法</span></a></li><li><a href="#3-TimeLine使用"><span>3. TimeLine使用</span></a></li><li><a href="#4-Playground的Sources目录"><span>4. Playground的Sources目录</span></a></li></ol></li></ol>
-                </div>
-
-            </div>
-            
-
-        </div>
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li></ul>
     </div>
-</div>
+  </div>
 
 
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        </div>
-        <div class="ui vertical footer segment">
-    <div class="ui center aligned container">
-        <div class="ui inverted section divider"></div>
-        &copy; 2017 <a href="/">CoderShmily</a>,
-        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
-                href="http://hexo.io/" target="_blank">Hexo</a>.
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/15/2016-11-15-Swift3.0-jie-shao/">Swift3.0学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/15/2015-05-15-sdwebimageyuan-ma-jie-xi/">SDWebImage源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/07/2015-05-07-objective-c-runtime-si-dong-tai-fang-fa-jue-yi-dynamic-method-resolution/">Objective-C Runtime(四) 动态方法决议</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/06/2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di/">Objective-C Runtime(三) 消息传递</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/05/2015-05-05-runtime-gai-shu/">Objective-C Runtime(一) 概述</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
+  </div>
 
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 CoderShmily<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
 
 
 
 
-<!-- scripts list from theme config.yml -->
-
-<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-
-<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
-
-<script src="/js/semantic-ui-algolia.js"></script>
-
-<script src="/js/aloha-events.js"></script>
-
-
-
+  </div>
 </body>
 </html>

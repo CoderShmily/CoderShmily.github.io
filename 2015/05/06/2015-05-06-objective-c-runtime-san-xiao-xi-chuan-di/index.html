@@ -1,15 +1,11 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head prefix="og: http://ogp.me/ns#">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta name="description" content="我是description">
-    <title>Objective-C Runtime(三) 消息传递 | CoderShmily&#39;s Blog</title>
-
-    <!-- Open Graph -->
-    <meta name="description" content="Objective-C Runtime的消息传递">
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Objective-C Runtime(三) 消息传递 | CoderShmily&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Objective-C Runtime的消息传递">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C Runtime(三) 消息传递">
 <meta property="og:url" content="http://codershmily.github.io/2015/05/06/2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di/index.html">
@@ -19,128 +15,50 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C Runtime(三) 消息传递">
 <meta name="twitter:description" content="Objective-C Runtime的消息传递">
-
-    <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Person",
-  "email": "mailto:undefined",
-  "image": "undefined",
-  "name": "CoderShmily",
-  "url": "http://codershmily.github.io"
-}
-</script>
-    <script>
-    var algoliaEnabled = false;
-    
-</script>
-
-    
-
-    
-    
-        <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-    
-    
-    
-        <!-- stylesheets list from config.yml -->
-        
-        <link rel="stylesheet" href="/css/aloha.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
-        
-        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
-        
-    
-
+  
+    <link rel="alternate" href="/atom.xml" title="CoderShmily&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body id="body" style="margin-bottom: 0;" class="pushable">
 
-    <div class="ui top fixed menu">
-        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
-    </div>
+<body>
+  <div id="container">
+    <div id="wrap">
+      
+      <div class="outer">
+        <section id="main"><article id="post-2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/06/2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di/" class="article-date">
+  <time datetime="2015-05-06T13:51:41.000Z" itemprop="datePublished">2015-05-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
 
-    <div id="menu-sidebar" class="ui left vertical sidebar menu">
-
-    <div id="sidebar-top">
-        <div class="content">
-            <h3>CoderShmily&#39;s Blog</h3>
-        </div>
-    </div>
-    <div class="ui container sidebar-card">
-    <div class="ui people shape content">
-        <div class="active side">
-            <div class="ui card">
-                <div class="image">
-                    <img class="ui medium bordered image" src="/images/avatar.jpg">
-                </div>
-                <div class="content">
-                    <a class="header">CoderShmily</a>
-                    
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                        
-                    </div>
-
-                </div>
-                <div class="extra content">
-                    <div class="ui list">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-</div>
-
+  </div>
+  <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Objective-C Runtime(三) 消息传递
+    </h1>
+  
 
+      </header>
     
-
-    
-    <a href="/index.html" class="item" >
-        <i class="home icon"></i>
-        首页
-    </a>
-
-    
-
-    
-</div>
-
-    <div class="pusher body-content">
-        <div id="content" class="ui main container">
-            <!--<div class="ui one column grid">-->
-                <!--<div class="column">-->
-                    <!--<div class="ui main container">-->
-                        <div id="post-2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di" class="ui main container article-type-post">
-
-    
-
-    <div class="ui divided grid">
-
-        <div class="two column row" id="article-content">
-
-            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
-                
-
-<h1 class="ui header">
-    
-    Objective-C Runtime(三) 消息传递
-</h1>
-
-
-
-                <div class="article-inner">
-
-                    <div class="article-entry" itemprop="articleBody">
-                        
-                        <p>Objective-C Runtime的消息传递<br><a id="more"></a></p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Objective-C Runtime的消息传递<br><a id="more"></a></p>
 <p>###Objective-C – 消息传递<br>Objective-C 扩展了 C 语言，并加入了面向对象特性和 Smalltalk 式的消息传递机制。而这个扩展的核心是一个用 C 和 编译语言 写的 Runtime 库。它是 Objective-C 面向对象和动态机制的基石.</p>
 <p>Objective-C 是一个动态语言，这意味着它不仅需要一个编译器，也需要一个运行时系统来动态得创建类和对象、进行消息传递和转发。理解 Objective-C 的 Runtime 机制可以帮我们更好的了解这个语言，适当的时候还能对语言进行扩展，从系统层面解决项目中的一些设计或技术问题。了解 Runtime ，要先了解它的核心 - <code>消息传递</code>（Messaging）。</p>
 <hr>
@@ -184,109 +102,132 @@
 <p>4.如果没有新的目标对象返回， Runtime 就会发送<code>-methodSignatureForSelector:</code> 和<code>-forwardInvocation:</code>消息。你可以发送 <code>-invokeWithTarget:</code> 消息来手动转发消息或者发送<code>-doesNotRecognizeSelector:</code>抛出异常。</p>
 <p>利用 Objective-C 的 runtime特性，我们可以自己来对语言进行扩展，解决项目开发中的一些设计和技术问题。下一篇文章，我会介绍 <code>Method Swizzling</code> 技术以及如何利用 <code>Method Swizzling</code> 做 Logging。</p>
 
-                        
-                    </div>
-
-                    
-                    
-                    
-
-                    <div class="description post-description">
-    <span class="post-description-item">
-        <time datetime="2015-05-06T13:51:41.000Z" itemprop="datePublished">2015-05-06</time>
-
-    </span>
-    <span class="post-description-item">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://codershmily.github.io/2015/05/06/2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di/" data-id="cj11z9je80007uczjt0tf6umq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/07/2015-05-07-objective-c-runtime-si-dong-tai-fang-fa-jue-yi-dynamic-method-resolution/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-    </span>
-</div>
+          Objective-C Runtime(四) 动态方法决议
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/05/2015-05-05-runtime-gai-shu/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Objective-C Runtime(一) 概述</div>
+    </a>
+  
+</nav>
 
-                </div>
-                
-                <div id="pagination" class="nav-web ui text container pagination">
+  
+</article>
 
-    <div class="ui stackable two column divided grid container">
-        <div class="row">
-            <div class="column nav-left">
-                
-
-                <a href="/2015/05/07/2015-05-07-objective-c-runtime-si-dong-tai-fang-fa-jue-yi-dynamic-method-resolution/" class="ui tiny button">
-
-                    <i class="angle left icon"></i>
-                    
-                    Objective-C Runtime(四) 动态方法决议
-                    
-
-                </a>
-
-                
-            </div>
-            <div class="column nav-right">
-                
-
-                <a href="/2015/05/05/2015-05-05-runtime-gai-shu/" class="ui tiny button">
-                    
-                    Objective-C Runtime(一) 概述
-                    
-                    <i class="angle right icon"></i></a>
-                
-            </div>
-        </div>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
     </div>
+  </div>
 
-</div>
-                
-            </div>
 
-            
-            <div class="three wide computer three wide tablet column">
+  
+    
 
-                <div class="ui sticky article-toc" id="article-toc">
-                    <!-- toc -->
-                    <ol class="ui ordered list"><li><a href="#消息传递"><span>消息传递</span></a></li></ol></li><li><a href="#objc-object-objc-class以及Ojbc-method"><span>objc_object, objc_class以及Ojbc_method</span></a><ol><li><a href="#动态方法解析和转发"><span>动态方法解析和转发</span></a></li><li><a href="#Fast-forwarding"><span>Fast forwarding</span></a></li></ol>
-                </div>
-
-            </div>
-            
-
-        </div>
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li></ul>
     </div>
-</div>
+  </div>
 
 
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        </div>
-        <div class="ui vertical footer segment">
-    <div class="ui center aligned container">
-        <div class="ui inverted section divider"></div>
-        &copy; 2017 <a href="/">CoderShmily</a>,
-        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a
-                href="http://hexo.io/" target="_blank">Hexo</a>.
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/15/2016-11-15-Swift3.0-jie-shao/">Swift3.0学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/15/2015-05-15-sdwebimageyuan-ma-jie-xi/">SDWebImage源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/07/2015-05-07-objective-c-runtime-si-dong-tai-fang-fa-jue-yi-dynamic-method-resolution/">Objective-C Runtime(四) 动态方法决议</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/06/2015-05-06-objective-c-runtime-san-xiao-xi-chuan-di/">Objective-C Runtime(三) 消息传递</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/05/2015-05-05-runtime-gai-shu/">Objective-C Runtime(一) 概述</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
+  </div>
 
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 CoderShmily<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
 
 
 
 
-<!-- scripts list from theme config.yml -->
-
-<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
-
-<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
-
-<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
-
-<script src="/js/semantic-ui-algolia.js"></script>
-
-<script src="/js/aloha-events.js"></script>
-
-
-
+  </div>
 </body>
 </html>
