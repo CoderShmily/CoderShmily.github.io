@@ -91,12 +91,12 @@
 
 
 <meta name="description" content="总结一些 Swift3.0学习笔记">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Swift3.0学习笔记">
-<meta property="og:url" content="http://codershmily.github.io/Swift3.0学习笔记.html">
+<meta property="og:url" content="http://codershmily.github.io/2016/11/15/Swift3.0学习笔记/index.html">
 <meta property="og:site_name" content="CoderShmily's Blog">
 <meta property="og:description" content="总结一些 Swift3.0学习笔记">
-<meta property="og:updated_time" content="2017-05-05T07:31:41.000Z">
+<meta property="og:updated_time" content="2017-05-05T15:46:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift3.0学习笔记">
 <meta name="twitter:description" content="总结一些 Swift3.0学习笔记">
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://codershmily.github.io/Swift3.0学习笔记.html"/>
+  <link rel="canonical" href="http://codershmily.github.io/2016/11/15/Swift3.0学习笔记/"/>
 
 
 
@@ -295,7 +295,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://codershmily.github.io/Swift3.0学习笔记.html">
+    <link itemprop="mainEntityOfPage" href="http://codershmily.github.io/2016/11/15/Swift3.0学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoderShmily">
@@ -347,52 +347,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/" itemprop="url" rel="index">
-                    <span itemprop="name"></span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/" itemprop="url" rel="index">
-                    <span itemprop="name"></span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/" itemprop="url" rel="index">
-                    <span itemprop="name"></span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/" itemprop="url" rel="index">
-                    <span itemprop="name"></span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/" itemprop="url" rel="index">
-                    <span itemprop="name"></span>
+                  <a href="/categories/Swift/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift</span>
                   </a>
                 </span>
 
@@ -409,9 +365,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Swift3.0学习笔记.html#comments" itemprop="discussionUrl">
+                <a href="/2016/11/15/Swift3.0学习笔记/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="Swift3.0学习笔记.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="2016/11/15/Swift3.0学习笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -459,7 +415,7 @@
 <h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><h2 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1. for循环"></a>1. for循环</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">for i in 0 ..&lt; 10 &#123;</div><div class="line">    print(i)</div><div class="line">&#125;</div><div class="line"></div><div class="line">// _代表忽略的意思</div><div class="line">for _ in 0 ..&lt; 10 &#123;</div><div class="line">    print(&quot;test&quot;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="2-while循环"><a href="#2-while循环" class="headerlink" title="2. while循环"></a>2. while循环</h2><h3 id="1-while循环"><a href="#1-while循环" class="headerlink" title="1. while循环"></a>1. while循环</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i = <span class="number">10</span></div><div class="line"><span class="keyword">while</span> i  <span class="number">0</span> &#123;</div><div class="line">    i -= <span class="number">1</span></div><div class="line">    <span class="built_in">print</span>(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="2-repeat-while循环"><a href="#2-repeat-while循环" class="headerlink" title="2. repeat~while循环"></a>2. repeat~while循环</h3><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// do 特殊含义，捕捉异常</span></div><div class="line"><span class="keyword">repeat</span> &#123;</div><div class="line">    i += <span class="number">1</span></div><div class="line">    <span class="built_in">print</span>(i)</div><div class="line">&#125; <span class="keyword">while</span> i &lt; <span class="number">10</span></div></pre></td></tr></table></figure>
-<h1 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str2 = <span class="string">"123"</span></div><div class="line"><span class="keyword">let</span> int4 = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="comment">// 字符串拼接</span></div><div class="line">str2 + <span class="string">"\(int4)"</span></div><div class="line"></div><div class="line"><span class="comment">// 遍历字符串</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> str2.characters &#123;</div><div class="line">    <span class="built_in">print</span>(i)</div><div class="line">&#125;</div><div class="line"></div><div class="line">str2.lengthOfBytes(using: <span class="type">String</span>.<span class="type">Encoding</span>.utf8)</div><div class="line">str2.characters.<span class="built_in">count</span></div><div class="line"><span class="type">String</span>(format: <span class="string">"%02d"</span>, <span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">// 截取字符串</span></div><div class="line">str2.substring(from: str2.startIndex)</div><div class="line">str2.substring(to: str2.index(after: str2.startIndex))</div><div class="line">str2.substring(from: str2.index(str2.startIndex, offsetBy: <span class="number">2</span>))</div><div class="line">str2.substring(from: str2.index(str2.endIndex, offsetBy: -<span class="number">1</span>))</div><div class="line"><span class="keyword">let</span> range = str2.startIndex ..&lt; str2.endIndex</div><div class="line">str2.substring(with: range)</div><div class="line">str2.replaceSubrange(range, with: <span class="string">"sss"</span>)</div><div class="line"></div><div class="line"><span class="comment">// 转为OC的NSString处理</span></div><div class="line"><span class="keyword">let</span> str3 = (str2 <span class="keyword">as</span> <span class="type">NSString</span>).substring(to: <span class="number">2</span>)</div></pre></td></tr></table></figure>
+<h1 id="字符串处理"><a href="#字符串处理" class="headerlink" title="字符串处理"></a>字符串处理</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str2 = <span class="string">"123"</span></div><div class="line"><span class="keyword">let</span> int4 = <span class="number">10</span></div><div class="line"></div><div class="line"><span class="comment">// 字符串拼接</span></div><div class="line">str2 + <span class="string">"<span class="subst">\(int4)</span>"</span></div><div class="line"></div><div class="line"><span class="comment">// 遍历字符串</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> str2.characters &#123;</div><div class="line">    <span class="built_in">print</span>(i)</div><div class="line">&#125;</div><div class="line"></div><div class="line">str2.lengthOfBytes(using: <span class="type">String</span>.<span class="type">Encoding</span>.utf8)</div><div class="line">str2.characters.<span class="built_in">count</span></div><div class="line"><span class="type">String</span>(format: <span class="string">"%02d"</span>, <span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">// 截取字符串</span></div><div class="line">str2.substring(from: str2.startIndex)</div><div class="line">str2.substring(to: str2.index(after: str2.startIndex))</div><div class="line">str2.substring(from: str2.index(str2.startIndex, offsetBy: <span class="number">2</span>))</div><div class="line">str2.substring(from: str2.index(str2.endIndex, offsetBy: -<span class="number">1</span>))</div><div class="line"><span class="keyword">let</span> range = str2.startIndex ..&lt; str2.endIndex</div><div class="line">str2.substring(with: range)</div><div class="line">str2.replaceSubrange(range, with: <span class="string">"sss"</span>)</div><div class="line"></div><div class="line"><span class="comment">// 转为OC的NSString处理</span></div><div class="line"><span class="keyword">let</span> str3 = (str2 <span class="keyword">as</span> <span class="type">NSString</span>).substring(to: <span class="number">2</span>)</div></pre></td></tr></table></figure>
 <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数组的声明和初始化</span></div><div class="line"><span class="keyword">let</span> arr1 = [<span class="number">2</span>]</div><div class="line"><span class="keyword">var</span> arr2 : [<span class="type">Any</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="string">"ii"</span>, <span class="number">11</span>, <span class="string">"ss"</span>, <span class="string">"w"</span>]</div><div class="line"><span class="keyword">let</span> arr3 = [<span class="number">1</span>, <span class="number">1.1</span>, <span class="string">"ss"</span>] <span class="keyword">as</span> [<span class="type">Any</span>]</div><div class="line"></div><div class="line"><span class="comment">// 相同类型的数组可以直接相加</span></div><div class="line">arr2 + arr3</div><div class="line"></div><div class="line"><span class="comment">// 获取</span></div><div class="line">arr2.first</div><div class="line">arr2.last</div><div class="line">arr2[<span class="number">0</span>]</div><div class="line"><span class="comment">// 追加</span></div><div class="line">arr2.append(<span class="number">2.0</span>)</div><div class="line"><span class="comment">// 修改</span></div><div class="line">arr2[<span class="number">0</span>] = <span class="number">1</span></div><div class="line"><span class="comment">// 插入</span></div><div class="line">arr2.insert(<span class="string">"sww"</span>, at: <span class="number">2</span>)</div><div class="line"><span class="comment">// 删除</span></div><div class="line">arr2.remove(at: <span class="number">0</span>)</div><div class="line">arr2.removeFirst()</div><div class="line">arr2.removeFirst(<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="comment">// 操作数组的区间</span></div><div class="line"><span class="keyword">let</span> rang2 = <span class="number">0</span> ..&lt; <span class="number">2</span></div><div class="line">arr2.removeSubrange(<span class="number">0</span> ..&lt; <span class="number">2</span>)</div><div class="line"></div><div class="line"><span class="comment">// 获取数组最大最小</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>]</div><div class="line">arr.<span class="built_in">min</span>()</div><div class="line">arr.<span class="built_in">max</span>()</div><div class="line"><span class="keyword">var</span> arr4 = [<span class="string">"a"</span>, <span class="string">"3.3"</span>]</div><div class="line"><span class="comment">// 比的ASCII码</span></div><div class="line">arr4.<span class="built_in">min</span>()</div><div class="line">arr4.<span class="built_in">max</span>()</div><div class="line"></div><div class="line"><span class="comment">// 数组的遍历</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span> ..&lt; arr2.<span class="built_in">count</span> &#123;</div><div class="line">    <span class="built_in">print</span>(arr2[i])</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 利用元组获取数组的 角标+ 值</span></div><div class="line"><span class="keyword">for</span> (key ,value) <span class="keyword">in</span> arr2.enumerated() &#123;</div><div class="line">    <span class="built_in">print</span>(key, value)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> arr2[<span class="number">0</span>...<span class="number">2</span>] &#123;</div><div class="line">    <span class="built_in">print</span>(i)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 转为OC数组的遍历</span></div><div class="line">(arr2 <span class="keyword">as</span> <span class="type">NSArray</span>).enumerateObjects(&#123; (value, idx, stop) <span class="keyword">in</span></div><div class="line">    <span class="built_in">print</span>(value, idx)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> dict : [<span class="type">String</span> : <span class="type">Any</span>] = [<span class="string">"key"</span> : <span class="number">1</span>, <span class="string">"key2"</span> : <span class="string">"value"</span>]</div><div class="line">dict[<span class="string">"key"</span>] = <span class="number">2</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> index = dict.index(forKey: <span class="string">"key"</span>)</div><div class="line"><span class="comment">// index为nil报错</span></div><div class="line">dict.remove(at: index!)</div><div class="line"></div><div class="line"><span class="comment">// 有则改，无则加</span></div><div class="line">dict.updateValue(<span class="string">"value2"</span>, forKey: <span class="string">"key2"</span>)</div><div class="line">dict.removeValue(forKey: <span class="string">"key2"</span>)</div><div class="line">dict.removeAll()</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">for</span> value <span class="keyword">in</span> dict.values &#123;</div><div class="line">    <span class="built_in">print</span>(value)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (key ,value) <span class="keyword">in</span> dict &#123;</div><div class="line">    <span class="built_in">print</span>(key, value)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 类扩展---字典的相+</span></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Dictionary</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> +<span class="params">(dic : Dictionary, dic2 : Dictionary)</span></span> - <span class="type">Dictionary</span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> result = dic</div><div class="line">        <span class="keyword">for</span> (key , value) <span class="keyword">in</span> dic2 &#123;</div><div class="line">            result[key] = value</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="元组"><a href="#元组" class="headerlink" title="元组"></a>元组</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 元组类型 (name: String, Int, score: Int)， 可以作为返回值</span></div><div class="line"><span class="keyword">let</span> yz = (name : <span class="string">"zhangsan"</span>, <span class="number">_</span> : <span class="number">18</span>, score : <span class="number">2</span>)</div><div class="line">yz.<span class="number">0</span></div><div class="line">yz.name</div><div class="line">yz.score</div><div class="line"></div><div class="line"><span class="keyword">let</span>(name, age, score) = (<span class="string">"zhangsan"</span>, <span class="number">2</span>, <span class="number">2</span>)</div></pre></td></tr></table></figure>
@@ -541,7 +497,8 @@
 </ol>
 <h1 id="方法抛出异常"><a href="#方法抛出异常" class="headerlink" title="方法抛出异常"></a>方法抛出异常</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Error 就是在告诉编译器，这个枚举，可以充当具体的异常值</span></div><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">FileError</span> : <span class="title">Error</span></span>&#123;</div><div class="line">    <span class="keyword">case</span> notExists</div><div class="line">    <span class="keyword">case</span> notFormat</div><div class="line">    <span class="keyword">case</span> notContent</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// path 不存在 nil</span></div><div class="line"><span class="comment">// path存在，但是，路径对应的文件格式不对 .png</span></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">readFile</span><span class="params">(path : String)</span></span> <span class="keyword">throws</span> - <span class="type">String</span> &#123;</div><div class="line">    <span class="comment">// 1. 判断文件路径是否存在</span></div><div class="line">    <span class="keyword">let</span> isExists = <span class="type">FileManager</span>.<span class="keyword">default</span>.fileExists(atPath: path)</div><div class="line">    <span class="keyword">if</span> !isExists &#123;</div><div class="line">        <span class="comment">// 在这里面，抛出，出现问题的原因</span></div><div class="line">        <span class="comment">// 如果想要成为，异常值，必须要遵循一个协议Error</span></div><div class="line">        <span class="keyword">throw</span> <span class="type">FileError</span>.notExists</div><div class="line"><span class="comment">//        return</span></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 2. 读取文件内容</span></div><div class="line">    <span class="comment">// 判定，如果这个构造函数，出现了异常，一般都是格式不正确</span></div><div class="line">    <span class="keyword">var</span> content : <span class="type">String</span> = <span class="string">""</span></div><div class="line">    <span class="keyword">do</span> &#123;</div><div class="line">        content = <span class="keyword">try</span> <span class="type">String</span>(contentsOfFile: path)</div><div class="line">    &#125; <span class="keyword">catch</span>  &#123;</div><div class="line">        <span class="comment">// 捕捉到异常，会执行这个闭包</span></div><div class="line">        <span class="keyword">throw</span> <span class="type">FileError</span>.notFormat</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> content.lengthOfBytes(using: <span class="type">String</span>.<span class="type">Encoding</span>.utf8) == <span class="number">0</span> &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="type">FileError</span>.notContent</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> content</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="Playground"><a href="#Playground" class="headerlink" title="Playground"></a>Playground</h1><h2 id="1-Playground异步执行"><a href="#1-Playground异步执行" class="headerlink" title="1. Playground异步执行"></a>1. Playground异步执行</h2><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Playground中的代码会从上到下执行，并在执行完毕之后立即停止，如果想要测试异步处理（比如网络请求）</span></div><div class="line"><span class="comment">// 1. 导入PlaygroundSupport</span></div><div class="line"><span class="comment">// import PlaygroundSupport</span></div><div class="line"><span class="comment">// 2. 让Playground永远执行</span></div><div class="line"><span class="comment">//PlaygroundPage.current.needsIndefiniteExecution = true</span></div><div class="line"><span class="comment">// 3. 停止执行</span></div><div class="line"><span class="comment">// PlaygroundPage.current.finishExecution()</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> PlaygroundSupport</div><div class="line"><span class="type">PlaygroundPage</span>.current.needsIndefiniteExecution = <span class="literal">true</span></div><div class="line"><span class="keyword">let</span> queue = <span class="type">DispatchQueue</span>(label: <span class="string">"xx"</span>)</div><div class="line"><span class="keyword">let</span> time = <span class="type">DispatchTime</span>.now() + <span class="type">DispatchTimeInterval</span>.seconds(<span class="number">2</span>)</div><div class="line">queue.asyncAfter(deadline: time) &#123;</div><div class="line">    <span class="built_in">print</span>(<span class="string">"finish"</span>)</div><div class="line">    <span class="type">PlaygroundPage</span>.current.finishExecution()</div><div class="line">&#125;</div><div class="line"><span class="built_in">print</span>(<span class="string">"first"</span>)</div></pre></td></tr></table></figure>
-<h2 id="2-MarkDown语法"><a href="#2-MarkDown语法" class="headerlink" title="2. MarkDown语法"></a>2. MarkDown语法</h2><p>从Xcode右边文件属性，选中Render Documentation看渲染效果<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//: [Previous](@previous) </span></div><div class="line"><span class="comment">//: [Next](@next)</span></div><div class="line"></div><div class="line"><span class="comment">//PageName为页名字不能有空格</span></div><div class="line"><span class="comment">//: [Go to AnyPage](PageName)</span></div></pre></td></tr></table></figure></p>
+<h2 id="2-MarkDown语法"><a href="#2-MarkDown语法" class="headerlink" title="2. MarkDown语法"></a>2. MarkDown语法</h2><p>从Xcode右边文件属性，选中Render Documentation看渲染效果</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//: [Previous](@previous) </span></div><div class="line"><span class="comment">//: [Next](@next)</span></div><div class="line"></div><div class="line"><span class="comment">//PageName为页名字不能有空格</span></div><div class="line"><span class="comment">//: [Go to AnyPage](PageName)</span></div></pre></td></tr></table></figure>
 <h2 id="3-TimeLine使用"><a href="#3-TimeLine使用" class="headerlink" title="3. TimeLine使用"></a>3. TimeLine使用</h2><p>点击右上角双环（Show the Assistant editor）,在代码中做的动画可以在TimeLine中预览</p>
 <h2 id="4-Playground的Sources目录"><a href="#4-Playground的Sources目录" class="headerlink" title="4. Playground的Sources目录"></a>4. Playground的Sources目录</h2><ol>
 <li>放到Sources目录下的源文件会被编译成模块(module)并自动导入到Playground中，只会编译一次</li>
@@ -579,6 +536,26 @@
         
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/15/小知识点总结/" rel="next" title="小知识点总结">
+                <i class="fa fa-chevron-left"></i> 小知识点总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/03/iOS9新特性之常见关键字/" rel="prev" title="iOS9新特性之常见关键字">
+                iOS9新特性之常见关键字 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -660,7 +637,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -878,8 +855,8 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://codershmily.github.io/Swift3.0学习笔记.html';
-          this.page.identifier = 'Swift3.0学习笔记.html';
+          this.page.url = 'http://codershmily.github.io/2016/11/15/Swift3.0学习笔记/';
+          this.page.identifier = '2016/11/15/Swift3.0学习笔记/';
           this.page.title = 'Swift3.0学习笔记';
         };
         var d = document, s = d.createElement('script');
