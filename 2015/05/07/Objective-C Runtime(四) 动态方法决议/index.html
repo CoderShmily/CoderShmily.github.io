@@ -5,16 +5,43 @@
   
   <title>Objective-C Runtime(四) 动态方法决议 | CoderShmily&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Objective-C Runtime之动态方法决议">
+  <meta name="description" content="动态方法决议/动态方法解析(Dynamic Method Resolution)
+在声明property属性后，有2种实现选择
+
+@synthesize
+
+编译器期间，让编译器自动生成getter/setter方法。当有自定义的存或取方法时，自定义会屏蔽自动生成该方法
+
+@dynamic
+
+告诉编译器，不自动生成getter/setter方法，避免编译期间产生警告,然后由自己实现存取方法或存取方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C Runtime(四) 动态方法决议">
 <meta property="og:url" content="http://codershmily.github.io/2015/05/07/Objective-C Runtime(四) 动态方法决议/index.html">
 <meta property="og:site_name" content="CoderShmily's Blog">
-<meta property="og:description" content="Objective-C Runtime之动态方法决议">
-<meta property="og:updated_time" content="2017-04-03T10:46:36.000Z">
+<meta property="og:description" content="动态方法决议/动态方法解析(Dynamic Method Resolution)
+在声明property属性后，有2种实现选择
+
+@synthesize
+
+编译器期间，让编译器自动生成getter/setter方法。当有自定义的存或取方法时，自定义会屏蔽自动生成该方法
+
+@dynamic
+
+告诉编译器，不自动生成getter/setter方法，避免编译期间产生警告,然后由自己实现存取方法或存取方">
+<meta property="og:updated_time" content="2017-05-05T03:48:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C Runtime(四) 动态方法决议">
-<meta name="twitter:description" content="Objective-C Runtime之动态方法决议">
+<meta name="twitter:description" content="动态方法决议/动态方法解析(Dynamic Method Resolution)
+在声明property属性后，有2种实现选择
+
+@synthesize
+
+编译器期间，让编译器自动生成getter/setter方法。当有自定义的存或取方法时，自定义会屏蔽自动生成该方法
+
+@dynamic
+
+告诉编译器，不自动生成getter/setter方法，避免编译期间产生警告,然后由自己实现存取方法或存取方">
   
     <link rel="alternate" href="/atom.xml" title="CoderShmily&#39;s Blog" type="application/atom+xml">
   
@@ -60,10 +87,8 @@
       
                 <!-- Table of Contents -->
           
-        <p>Objective-C Runtime之动态方法决议<br><a id="more"></a></p>
-<blockquote>
+        <a id="more"></a>
 <p>动态方法决议/动态方法解析(Dynamic Method Resolution)</p>
-</blockquote>
 <p>在声明property属性后，有2种实现选择</p>
 <ul>
 <li>@synthesize</li>
