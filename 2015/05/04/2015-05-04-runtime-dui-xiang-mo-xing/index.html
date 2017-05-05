@@ -13,13 +13,11 @@
 <meta property="og:site_name" content="CoderShmily's Blog">
 <meta property="og:description" content="Objective-C语言是一门动态语言，它将很多静态语言在编译和链接时期做的事放到了运行时来处理。这种动态语言的优势在于：我们写代码时更具灵活性，如我们可以把消息转发给我们想要的对象，或者随意交换一个方法的实现等。
 这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。对于Objective-C来说，这个运行时系统就像一个操作系统一样：它让所有的工作可以正">
-<meta property="og:image" content="http://opgilmcn7.bkt.clouddn.com/2017-05-05-Snip20170406_4.png">
-<meta property="og:updated_time" content="2017-05-05T02:31:32.000Z">
+<meta property="og:updated_time" content="2017-05-05T02:32:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C Runtime(二) 对象模型">
 <meta name="twitter:description" content="Objective-C语言是一门动态语言，它将很多静态语言在编译和链接时期做的事放到了运行时来处理。这种动态语言的优势在于：我们写代码时更具灵活性，如我们可以把消息转发给我们想要的对象，或者随意交换一个方法的实现等。
 这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。对于Objective-C来说，这个运行时系统就像一个操作系统一样：它让所有的工作可以正">
-<meta name="twitter:image" content="http://opgilmcn7.bkt.clouddn.com/2017-05-05-Snip20170406_4.png">
   
     <link rel="alternate" href="/atom.xml" title="CoderShmily&#39;s Blog" type="application/atom+xml">
   
@@ -126,7 +124,7 @@
 </ol>
 <p>NSObject的实例对象(虽然它没有实例变量和实例方法但这个对象仍然存在)其super_class指向地址0x0，因为NSObject没有父类, 这满足上面的结论1。</p>
 <p>NSObject的实例对象的isa指向了NSObject的元类对象(metaclass object)，这满足上面结论2。</p>
-<p>NSObject的元类对象(metaclass object)指向了自己，这也满足上面结论4。<br><img src="http://opgilmcn7.bkt.clouddn.com/2017-05-05-Snip20170406_4.png" alt="Snip20170406_4"></p>
+<p>NSObject的元类对象(metaclass object)指向了自己，这也满足上面结论4。</p>
 
       
     </div>
@@ -212,7 +210,7 @@
           </li>
         
           <li>
-            <a href="/2015/05/05/2015-05-05-runtime-gai-shu/">Objective-C Runtime(一) 概述</a>
+            <a href="/2015/05/06/我是测试/">Objective-C Runtime(三) 消息传递</a>
           </li>
         
       </ul>
