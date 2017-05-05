@@ -17,7 +17,7 @@
 
 迎合swift
 提高我们开发人员开发规范，减少程序员之间的交流">
-<meta property="og:updated_time" content="2017-05-05T03:31:17.000Z">
+<meta property="og:updated_time" content="2017-05-05T03:33:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS9新特性之常见关键字">
 <meta name="twitter:description" content="iOS9新出的关键字，用来修饰属性，或者方法的参数，方法的返回值好处：
@@ -71,7 +71,7 @@
           
           <div id="toc" class="toc-article">
           <strong class="toc-title">文章目录</strong>
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#nullable和nonnull"><span class="toc-text">nullable和nonnull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null-resettable"><span class="toc-text">null_resettable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null-unspecified"><span class="toc-text">null_unspecified</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#泛型"><span class="toc-text">泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#covariant"><span class="toc-text">__covariant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contravariant"><span class="toc-text">__contravariant</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#kindof"><span class="toc-text">__kindof</span></a>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#nullable和nonnull"><span class="toc-text">nullable和nonnull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null-resettable"><span class="toc-text">null_resettable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null-unspecified"><span class="toc-text">null_unspecified</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#泛型"><span class="toc-text">泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#covariant"><span class="toc-text">__covariant</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#contravariant"><span class="toc-text">__contravariant</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#kindof"><span class="toc-text">__kindof</span></a></li></ol>
           </div>
           
         <p>iOS9新出的关键字，用来修饰属性，或者方法的参数，方法的返回值<br>好处：</p>
@@ -106,7 +106,7 @@
 <p><code>null_resettable</code>必须重写<code>setter</code>或者<code>getter</code>方法，处理传递的值为空的情况（实际重写不判断为空警告也没了），不然会有警告。</p>
 <h2 id="null-unspecified"><a href="#null-unspecified" class="headerlink" title="null_unspecified"></a>null_unspecified</h2><p><code>null_unspecified</code>不确定是否为空</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *_Null_unspecified name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">null_unspecified</span>) <span class="built_in">NSString</span> *name;</div></pre></td></tr></table></figure>
-<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>泛型：限制类型<br>泛型使用场景：</p>
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><p>泛型：限制类型<br>泛型使用场景：</p>
 <ul>
 <li>在集合（数组、字典、<code>NSSet</code>）中使用泛型比较常见。</li>
 <li>当声明一个类。类里面的某些属性的类型不确定，这时候我们才使用泛型。</li>
@@ -118,10 +118,10 @@
 </ul>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *nameArr;</div><div class="line"></div><div class="line"><span class="comment">// 后面使用时可以直接调出对应的方法</span></div><div class="line"><span class="keyword">self</span>.nameArr[<span class="number">0</span>].length;</div></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ObjectType可以自己指定名字</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>&lt;<span class="title">ObjectType</span>&gt; : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) ObjectType language;</div><div class="line"></div><div class="line">- (ObjectType)language;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line">Person&lt;<span class="built_in">NSString</span> *&gt; *p = [Person new];</div><div class="line">p.language = <span class="string">@"ss"</span>;</div></pre></td></tr></table></figure>
-<h2 id="covariant"><a href="#covariant" class="headerlink" title="__covariant"></a>__covariant</h2><p>(协变): 用于泛型数据强转类型，可以向上强转，子类可以转成父类。</p>
+<h3 id="covariant"><a href="#covariant" class="headerlink" title="__covariant"></a>__covariant</h3><p>(协变): 用于泛型数据强转类型，可以向上强转，子类可以转成父类。</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>&lt;<span class="title">__covariant</span> <span class="title">ObjectType</span>&gt; : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) ObjectType language;</div><div class="line"></div><div class="line">- (ObjectType)language;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<h2 id="contravariant"><a href="#contravariant" class="headerlink" title="__contravariant"></a>__contravariant</h2><p>(逆变): 用于泛型数据强转类型，可以向下强转，父类可以转成子类。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>&lt;<span class="title">__contravariant</span> <span class="title">ObjectType</span>&gt; : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
-<h1 id="kindof"><a href="#kindof" class="headerlink" title="__kindof"></a>__kindof</h1><p><code>__kindof</code>表示当前类或者它的子类<br>好处：</p>
+<h3 id="contravariant"><a href="#contravariant" class="headerlink" title="__contravariant"></a>__contravariant</h3><p>(逆变): 用于泛型数据强转类型，可以向下强转，父类可以转成子类。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>&lt;<span class="title">__contravariant</span> <span class="title">ObjectType</span>&gt; : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<h2 id="kindof"><a href="#kindof" class="headerlink" title="__kindof"></a>__kindof</h2><p><code>__kindof</code>表示当前类或者它的子类<br>好处：</p>
 <ul>
 <li>可以在编译的时候，检查真实类型</li>
 <li>返回值会有提示修饰的当前类</li>
