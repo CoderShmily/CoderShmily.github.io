@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS9新特性之常见关键字 | CoderShmily&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="KVC 和 KVO深入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS9新特性之常见关键字">
+<meta property="og:url" content="http://codershmily.github.io/2016/12/03/iOS9新特性之常见关键字/index.html">
+<meta property="og:site_name" content="CoderShmily's Blog">
+<meta property="og:description" content="KVC 和 KVO深入">
+<meta property="og:updated_time" content="2017-05-05T03:26:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS9新特性之常见关键字">
+<meta name="twitter:description" content="KVC 和 KVO深入">
+  
+    <link rel="alternate" href="/atom.xml" title="CoderShmily&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      
+      <div class="outer">
+        <section id="main"><article id="post-iOS9新特性之常见关键字" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/03/iOS9新特性之常见关键字/" class="article-date">
+  <time datetime="2016-12-02T16:00:00.000Z" itemprop="datePublished">2016-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS9新特性之常见关键字
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                <!-- Table of Contents -->
+          
+        <p>KVC 和 KVO深入</p>
+<a id="more"></a>
+<h1 id="iOS9新特性之常见关键字"><a href="#iOS9新特性之常见关键字" class="headerlink" title="iOS9新特性之常见关键字"></a>iOS9新特性之常见关键字</h1><p>iOS9新出的关键字，用来修饰属性，或者方法的参数，方法的返回值<br>好处：</p>
+<ul>
+<li>迎合swift</li>
+<li>提高我们开发人员开发规范，减少程序员之间的交流</li>
+</ul>
+<p>##nullable和nonnull<br><code>nullable</code>:表示可以为空,<code>nonnull</code>为非空<br>只能修饰对象，不能修饰int等,因为nil只能赋值给对象<br>书写规范一样，以<code>nullable</code>为例：</p>
+<ul>
+<li>方式一：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">nullable</span>) <span class="built_in">NSString</span> *name;</div></pre></td></tr></table></figure>
+<ul>
+<li>方式二：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *_Nullable name;</div></pre></td></tr></table></figure>
+<ul>
+<li>方式三：</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *__<span class="keyword">nullable</span> name;</div></pre></td></tr></table></figure>
+<ul>
+<li>方式四：修饰方法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">nonnull</span> <span class="built_in">NSString</span> *)name:(<span class="keyword">nonnull</span> <span class="built_in">NSString</span> *)str;</div><div class="line">- (<span class="built_in">NSString</span> *_Nonnull)name;</div></pre></td></tr></table></figure>
+<ul>
+<li>方式五：</li>
+</ul>
+<p>在<code>NS_ASSUME_NONNULL_BEGIN</code>和<code>NS_ASSUME_NONNULL_END</code>之间定义的所有对象属性和方法默认都是<code>nonnull</code>。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NS_ASSUME_NONNULL_BEGIN</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *name;</div><div class="line"><span class="built_in">NS_ASSUME_NONNULL_END</span></div></pre></td></tr></table></figure>
+<h2 id="null-resettable"><a href="#null-resettable" class="headerlink" title="null_resettable"></a>null_resettable</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// null_resettable：get不能返回空，set可以为空（比如控制器的view）</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>, <span class="keyword">null_resettable</span>) <span class="built_in">NSString</span> *name;</div></pre></td></tr></table></figure>
+<p><code>null_resettable</code>必须重写<code>setter</code>或者<code>getter</code>方法，处理传递的值为空的情况（实际重写不判断为空警告也没了），不然会有警告。</p>
+<h2 id="null-unspecified"><a href="#null-unspecified" class="headerlink" title="null_unspecified"></a>null_unspecified</h2><p><code>null_unspecified</code>不确定是否为空</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSString</span> *_Null_unspecified name;</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">null_unspecified</span>) <span class="built_in">NSString</span> *name;</div></pre></td></tr></table></figure>
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><p>泛型：限制类型<br>泛型使用场景：</p>
+<ul>
+<li>在集合（数组、字典、<code>NSSet</code>）中使用泛型比较常见。</li>
+<li>当声明一个类。类里面的某些属性的类型不确定，这时候我们才使用泛型。</li>
+</ul>
+<p>泛型好处：</p>
+<ul>
+<li>提高开发规范，减少程序员之间交流</li>
+<li>通过集合取出来对象，直接当做泛型对象使用，可以直接使用点语法</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *nameArr;</div><div class="line"></div><div class="line"><span class="comment">// 后面使用时可以直接调出对应的方法</span></div><div class="line"><span class="keyword">self</span>.nameArr[<span class="number">0</span>].length;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ObjectType可以自己指定名字</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>&lt;<span class="title">ObjectType</span>&gt; : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) ObjectType language;</div><div class="line"></div><div class="line">- (ObjectType)language;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line">Person&lt;<span class="built_in">NSString</span> *&gt; *p = [Person new];</div><div class="line">p.language = <span class="string">@"ss"</span>;</div></pre></td></tr></table></figure>
+<h2 id="covariant"><a href="#covariant" class="headerlink" title="__covariant"></a>__covariant</h2><p>(协变): 用于泛型数据强转类型，可以向上强转，子类可以转成父类。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>&lt;<span class="title">__covariant</span> <span class="title">ObjectType</span>&gt; : <span class="title">NSObject</span></span></div><div class="line"></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>) ObjectType language;</div><div class="line"></div><div class="line">- (ObjectType)language;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h2 id="contravariant"><a href="#contravariant" class="headerlink" title="__contravariant"></a>__contravariant</h2><p>(逆变): 用于泛型数据强转类型，可以向下强转，父类可以转成子类。<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>&lt;<span class="title">__contravariant</span> <span class="title">ObjectType</span>&gt; : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<h1 id="kindof"><a href="#kindof" class="headerlink" title="__kindof"></a>__kindof</h1><p><code>__kindof</code>表示当前类或者它的子类<br>好处：</p>
+<ul>
+<li>可以在编译的时候，检查真实类型</li>
+<li>返回值会有提示修饰的当前类</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">NSString</span> *&gt; *nameArr;</div><div class="line"></div><div class="line">- (__kindof <span class="built_in">NSString</span> *)test;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://codershmily.github.io/2016/12/03/iOS9新特性之常见关键字/" data-id="cj2ba4s1z0000mczj6dvklw35" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/11/15/Swift3.0学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Swift3.0学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Swift/">Swift</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">十一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/03/iOS9新特性之常见关键字/">iOS9新特性之常见关键字</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/15/Swift3.0学习笔记/">Swift3.0学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/15/SDWebImage源码解析/">SDWebImage源码解析</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/07/Objective-C Runtime(四) 动态方法决议/">Objective-C Runtime(四) 动态方法决议</a>
+          </li>
+        
+          <li>
+            <a href="/2015/05/06/Objective-C Runtime(三) 消息传递/">Objective-C Runtime(三) 消息传递</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 CoderShmily<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
