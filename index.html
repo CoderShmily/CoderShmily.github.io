@@ -174,6 +174,51 @@
 
 
   
+    <article id="post-React Native介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/10/React Native介绍/" class="article-date">
+  <time datetime="2015-06-09T16:00:00.000Z" itemprop="datePublished">2015-06-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/10/React Native介绍/">React Native介绍</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React Native介绍</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/06/10/React Native介绍/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://codershmily.github.io/2015/06/10/React Native介绍/" data-id="cj2bhyk7f00005czj6go476zv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-const,static,extern简介" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/06/03/const,static,extern简介/" class="article-date">
@@ -200,81 +245,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-                <!-- Table of Contents -->
-          
-        <a id="more"></a>
-<h3 id="一、const与宏的区别（面试题）"><a href="#一、const与宏的区别（面试题）" class="headerlink" title="一、const与宏的区别（面试题）:"></a>一、const与宏的区别（面试题）:</h3><ul>
-<li><p><code>const简介</code>:之前常用的字符串常量，一般是抽成宏，但是苹果不推荐我们抽成宏，推荐我们使用const常量。</p>
-<ul>
-<li><code>编译时刻</code>:宏是预编译（编译之前处理），const是编译阶段。</li>
-<li><code>编译检查</code>:宏不做检查，不会报编译错误，只是替换，const会编译检查，会报编译错误。</li>
-<li><code>宏的好处</code>:宏能定义一些函数，方法。 const不能。</li>
-<li><p><code>宏的坏处</code>:使用大量宏，容易造成编译时间久，每次都需要重新替换。</p>
-<p>注意:很多Blog都说使用宏，会消耗很多内存，我这验证并不会生成很多内存，宏定义的是常量，常量都放在常量区，只会生成一份内存。</p>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常见的常量：抽成宏</span></div><div class="line"><span class="meta">#define TESTAccount @<span class="meta-string">"account"</span></span></div><div class="line"></div><div class="line"><span class="meta">#define TESTUserDefault [NSUserDefaults standardUserDefaults]</span></div><div class="line"></div><div class="line"><span class="comment">// 字符串常量</span></div><div class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> account = <span class="string">@"account"</span>;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="comment">// 偏好设置存储</span></div><div class="line">    <span class="comment">// 使用宏</span></div><div class="line">    [TESTUserDefault setValue:<span class="string">@"123"</span> forKey:TESTAccount];</div><div class="line"></div><div class="line">    <span class="comment">// 使用const常量</span></div><div class="line">    [[TESTUserDefault standardUserDefaults] setValue:<span class="string">@"123"</span> forKey:account];</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="二、const作用：限制类型"><a href="#二、const作用：限制类型" class="headerlink" title="二、const作用：限制类型"></a>二、const作用：限制类型</h3><ul>
-<li>1.const仅仅用来修饰右边的变量（基本数据变量p，指针变量*p）</li>
-<li><p>2.被const修饰的变量是只读的。</p>
-</li>
-<li><p><code>const基本使用</code></p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line"></div><div class="line">    <span class="comment">// 定义变量</span></div><div class="line">    <span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 允许修改值</span></div><div class="line">    a = <span class="number">20</span>;</div><div class="line"></div><div class="line">    <span class="comment">// const两种用法</span></div><div class="line">    <span class="comment">// const:修饰基本变量p</span></div><div class="line">    <span class="comment">// 这两种写法是一样的，const只修饰右边的基本变量b</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> b = <span class="number">20</span>; <span class="comment">// b:只读变量</span></div><div class="line">    <span class="keyword">int</span> <span class="keyword">const</span> b = <span class="number">20</span>; <span class="comment">// b:只读变量</span></div><div class="line"></div><div class="line">    <span class="comment">// 不允许修改值</span></div><div class="line">    b = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="comment">// const:修饰指针变量*p，带*的变量，就是指针变量.</span></div><div class="line">    <span class="comment">// 定义一个指向int类型的指针变量，指向a的地址</span></div><div class="line">    <span class="keyword">int</span> *p = &amp;a;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> c = <span class="number">10</span>;</div><div class="line"></div><div class="line">    p = &amp;c;</div><div class="line"></div><div class="line">    <span class="comment">// 允许修改p指向的地址，</span></div><div class="line">    <span class="comment">// 允许修改p访问内存空间的值</span></div><div class="line">    *p = <span class="number">20</span>;</div><div class="line"></div><div class="line">    <span class="comment">// const修饰指针变量访问的内存空间，修饰的是右边*p1，</span></div><div class="line">    <span class="comment">// 两种方式一样</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> *p1; <span class="comment">// *p1：常量 p1:变量</span></div><div class="line">    <span class="keyword">int</span> <span class="keyword">const</span> *p1; <span class="comment">// *p1：常量 p1:变量</span></div><div class="line"></div><div class="line">    <span class="comment">// const修饰指针变量p1</span></div><div class="line">    <span class="keyword">int</span> * <span class="keyword">const</span> p1; <span class="comment">// *p1:变量 p1:常量</span></div><div class="line"></div><div class="line">    <span class="comment">// 第一个const修饰*p1 第二个const修饰 p1</span></div><div class="line">    <span class="comment">// 两种方式一样</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p1; <span class="comment">// *p1：常量 p1：常量</span></div><div class="line"></div><div class="line">    <span class="keyword">int</span> <span class="keyword">const</span> * <span class="keyword">const</span> p1;  <span class="comment">// *p1：常量 p1：常量</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="三、const开发中使用场景"><a href="#三、const开发中使用场景" class="headerlink" title="三、const开发中使用场景:"></a>三、const开发中使用场景:</h3><ul>
-<li>1.当一个方法参数只读</li>
-<li>2.定义只读全局变量</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></div><div class="line"></div><div class="line"><span class="comment">// 定义只读全局常量</span></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> str  = <span class="string">@"123"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 当一个方法的参数，只读.</span></div><div class="line">- (<span class="keyword">void</span>)test:(<span class="built_in">NSString</span> * <span class="keyword">const</span>)name</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 指针只读,不能通过指针修改值</span></div><div class="line">- (<span class="keyword">void</span>)test1:(<span class="keyword">int</span> <span class="keyword">const</span> *)a&#123;</div><div class="line"></div><div class="line"><span class="comment">//    *a = 10;</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 基本数据类型只读</span></div><div class="line">- (<span class="keyword">void</span>)test2:(<span class="keyword">int</span> <span class="keyword">const</span>)a&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<h3 id="四、static和extern简单使用-要使用一个东西，先了解其作用"><a href="#四、static和extern简单使用-要使用一个东西，先了解其作用" class="headerlink" title="四、static和extern简单使用(要使用一个东西，先了解其作用)"></a>四、static和extern简单使用(要使用一个东西，先了解其作用)</h3><ul>
-<li><p><code>static作用</code>:</p>
-<ul>
-<li><p>修饰局部变量：</p>
-<p>  1.延长局部变量的生命周期,程序结束才会销毁。</p>
-<p>  2.局部变量只会生成一份内存,只会初始化一次。</p>
-</li>
-<li><p>修饰全局变量</p>
-<p>  1.只能在本文件中访问,修改全局变量的作用域,生命周期不会改</p>
-</li>
-</ul>
-</li>
-<li><p><code>extern作用</code>:</p>
-<ul>
-<li>只是用来获取全局变量(包括全局静态变量)的值，不能用于定义变量</li>
-</ul>
-</li>
-<li><code>extern工作原理</code>:<ul>
-<li>先在当前文件查找有没有全局变量，没有找到，才会去其他文件查找。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 全局变量：只有一份内存，所有文件共享，与extern联合使用。</span></div><div class="line"><span class="keyword">int</span> a = <span class="number">20</span>;</div><div class="line"></div><div class="line"><span class="comment">// static修饰全局变量</span></div><div class="line"><span class="keyword">static</span> <span class="keyword">int</span> age = <span class="number">20</span>;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)test</div><div class="line">&#123;</div><div class="line">    <span class="comment">// static修饰局部变量</span></div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> age = <span class="number">0</span>;</div><div class="line">    age++;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>,age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></div><div class="line"></div><div class="line">    [<span class="keyword">self</span> test];</div><div class="line">    [<span class="keyword">self</span> test];</div><div class="line"></div><div class="line">    <span class="keyword">extern</span> <span class="keyword">int</span> age;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>,age);</div><div class="line">&#125;</div><div class="line">I</div></pre></td></tr></table></figure>
-<h3 id="五、static与const联合使用"><a href="#五、static与const联合使用" class="headerlink" title="五、static与const联合使用"></a>五、static与const联合使用</h3><ul>
-<li>static与const作用:声明一个只读的静态变量</li>
-<li>开发使用场景:在<code>一个文件中</code>经常使用的字符串常量，可以使用static与const组合</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 开发中常用static修饰全局变量,只改变作用域</span></div><div class="line"></div><div class="line"><span class="comment">// 为什么要改变全局变量作用域，防止重复声明全局变量。</span></div><div class="line"></div><div class="line"><span class="comment">// 开发中声明的全局变量，有些不希望外界改动，只允许读取。</span></div><div class="line"></div><div class="line"><span class="comment">// 比如一个基本数据类型不希望别人改动</span></div><div class="line"></div><div class="line"><span class="comment">// 声明一个静态的全局只读常量</span></div><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">20</span>;</div><div class="line"></div><div class="line"><span class="comment">// staic和const联合的作用:声明一个静态的全局只读常量</span></div><div class="line"></div><div class="line"><span class="comment">// iOS中staic和const常用使用场景，是用来代替宏，把一个经常使用的字符串常量，定义成静态全局只读变量.</span></div><div class="line"></div><div class="line"><span class="comment">// 开发中经常拿到key修改值，因此用const修饰key,表示key只读，不允许修改。</span></div><div class="line"><span class="keyword">static</span>  <span class="built_in">NSString</span> * <span class="keyword">const</span> key = <span class="string">@"name"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 如果 const修饰 *key1,表示*key1只读，key1还是能改变。</span></div><div class="line"></div><div class="line"><span class="keyword">static</span>  <span class="built_in">NSString</span> <span class="keyword">const</span> *key1 = <span class="string">@"name"</span>;</div></pre></td></tr></table></figure>
-<h3 id="六、extern与const联合使用"><a href="#六、extern与const联合使用" class="headerlink" title="六、extern与const联合使用"></a>六、extern与const联合使用</h3><ul>
-<li>开发中使用场景:在<code>多个文件中</code>经常使用的同一个字符串常量，可以使用extern与const组合。</li>
-<li>原因:<ul>
-<li>static与const组合：在每个文件都需要定义一份静态全局变量。</li>
-<li>extern与const组合:只需要定义一份全局变量，多个文件共享。</li>
-</ul>
-</li>
-<li><p>全局常量正规写法:开发中便于管理所有的全局变量，通常搞一个GlobeConst文件，里面专门定义全局变量，统一管理，要不然项目文件多不好找。</p>
-</li>
-<li><p>GlobeConst.h</p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*******************************首页****************************/</span></div><div class="line"></div><div class="line"><span class="keyword">extern</span> <span class="built_in">NSString</span> * <span class="keyword">const</span> nameKey = <span class="string">@"name"</span>;</div><div class="line"></div><div class="line"><span class="comment">/*******************************首页****************************/</span></div></pre></td></tr></table></figure>
-<ul>
-<li>GlobeConst.m</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="comment">/*******************************首页****************************/</span></div><div class="line"></div><div class="line"><span class="built_in">NSString</span> * <span class="keyword">const</span> nameKey = <span class="string">@"name"</span>;</div><div class="line"></div><div class="line"><span class="comment">/*******************************首页****************************/</span></div></pre></td></tr></table></figure>
-
+        <p>const,static,extern简介</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/06/03/const,static,extern简介/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
@@ -573,52 +549,6 @@
 
 
   
-    <article id="post-Objective-C Runtime(二) 对象模型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/05/04/Objective-C Runtime(二) 对象模型/" class="article-date">
-  <time datetime="2015-05-04T10:01:50.000Z" itemprop="datePublished">2015-05-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/05/04/Objective-C Runtime(二) 对象模型/">Objective-C Runtime(二) 对象模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Objective-C语言是一门动态语言，它将很多静态语言在编译和链接时期做的事放到了运行时来处理。这种动态语言的优势在于：我们写代码时更具灵活性，如我们可以把消息转发给我们想要的对象，或者随意交换一个方法的实现等。</p>
-<p>这种特性意味着Objective-C不仅需要一个编译器，还需要一个运行时系统来执行编译的代码。对于Objective-C来说，这个运行时系统就像一个操作系统一样：它让所有的工作可以正常的运行。这个运行时系统即Objc Runtime。Objc Runtime其实是一个Runtime库，它基本上是用C和汇编写的，这个库使得C语言有了面向对象的能力。</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/05/04/Objective-C Runtime(二) 对象模型/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://codershmily.github.io/2015/05/04/Objective-C Runtime(二) 对象模型/" data-id="cj2b8f25p0004vgzjg73c55h0" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -674,11 +604,11 @@
           </li>
         
           <li>
-            <a href="/2015/06/03/const,static,extern简介/">const,static,extern简介</a>
+            <a href="/2015/06/10/React Native介绍/">React Native介绍</a>
           </li>
         
           <li>
-            <a href="/2015/05/15/SDWebImage源码解析/">SDWebImage源码解析</a>
+            <a href="/2015/06/03/const,static,extern简介/">const,static,extern简介</a>
           </li>
         
       </ul>
