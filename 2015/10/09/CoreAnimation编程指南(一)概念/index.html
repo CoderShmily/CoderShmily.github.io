@@ -1,0 +1,898 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="第一章      核心动画概念核心动画是一套包含图形绘制，投影，动画的Objective–C类集合。它通过开发人员所熟悉的应用程序套件和Cocoa Touch视图架构的抽象分层模式，同时使用先进的合作效果提供了一套流畅的动画。
+动态的动画接口很难创建，但是核心动画通过提供如下接口使这些创建起来变得更加简单:
+
+简单易用的高性能混合编程模型。
+类似视图一样，你可以通过使用图层来创建复杂的接口。
+轻量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CoreAnimation编程指南(一)概念">
+<meta property="og:url" content="http://codershmily.github.io/2015/10/09/CoreAnimation编程指南(一)概念/index.html">
+<meta property="og:site_name" content="CoderShmily's Blog">
+<meta property="og:description" content="第一章      核心动画概念核心动画是一套包含图形绘制，投影，动画的Objective–C类集合。它通过开发人员所熟悉的应用程序套件和Cocoa Touch视图架构的抽象分层模式，同时使用先进的合作效果提供了一套流畅的动画。
+动态的动画接口很难创建，但是核心动画通过提供如下接口使这些创建起来变得更加简单:
+
+简单易用的高性能混合编程模型。
+类似视图一样，你可以通过使用图层来创建复杂的接口。
+轻量">
+<meta property="og:image" content="http://codershmily.github.io/media/lk_class_hierarchy.jpg">
+<meta property="og:updated_time" content="2017-05-08T02:08:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CoreAnimation编程指南(一)概念">
+<meta name="twitter:description" content="第一章      核心动画概念核心动画是一套包含图形绘制，投影，动画的Objective–C类集合。它通过开发人员所熟悉的应用程序套件和Cocoa Touch视图架构的抽象分层模式，同时使用先进的合作效果提供了一套流畅的动画。
+动态的动画接口很难创建，但是核心动画通过提供如下接口使这些创建起来变得更加简单:
+
+简单易用的高性能混合编程模型。
+类似视图一样，你可以通过使用图层来创建复杂的接口。
+轻量">
+<meta name="twitter:image" content="http://codershmily.github.io/media/lk_class_hierarchy.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'LWMYM3IRZ6',
+      apiKey: '2921d2b3d1144c5d9ef2d1abeff1f089',
+      indexName: 'CoderShmily',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与【${query}】相关的内容","hits_stats":"${hits} 条相关记录，共耗时${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://codershmily.github.io/2015/10/09/CoreAnimation编程指南(一)概念/"/>
+
+
+
+
+
+  <title>CoreAnimation编程指南(一)概念 | CoderShmily's Blog</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">CoderShmily's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">总结学习的点点滴滴</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+
+<!-- 添加 开始 -->
+
+
+      
+
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://codershmily.github.io/2015/10/09/CoreAnimation编程指南(一)概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderShmily">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/100.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CoderShmily's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CoreAnimation编程指南(一)概念</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-09T00:00:00+08:00">
+                2015-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/10/09/CoreAnimation编程指南(一)概念/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2015/10/09/CoreAnimation编程指南(一)概念/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第一章-核心动画概念"><a href="#第一章-核心动画概念" class="headerlink" title="第一章      核心动画概念"></a>第一章      核心动画概念</h1><p>核心动画是一套包含图形绘制，投影，动画的Objective–C类集合。它通过开发人员所熟悉的应用程序套件和Cocoa Touch视图架构的抽象分层模式，同时使用先进的合作效果提供了一套流畅的动画。</p>
+<p>动态的动画接口很难创建，但是核心动画通过提供如下接口使这些创建起来变得更加简单:</p>
+<ul>
+<li>简单易用的高性能混合编程模型。</li>
+<li>类似视图一样，你可以通过使用图层来创建复杂的接口。</li>
+<li>轻量级的数据结构，它可以同时显示并让上百个图层产生动画效果。</li>
+<li>一套简单的动画接口，可以让你的动画运行在独立的线程里面，并可以独立于主线程之外。</li>
+<li>一旦动画配置完成并启动，核心动画完全控制并独立完成相应的动画帧。</li>
+<li>提高应用性能。应用程序只当发生改变的时候才重绘内容。再小的应用程序也需要改变和提供布局服务层。核心动画还消除了在动画的帧速率上运行的应用程序代码。</li>
+<li>灵活的布局管理模型。包括允许图层相对同级图层的关系来设置相应属性的位置和大小。</li>
+</ul>
+<p>使用核心动画，开发人员可以为他们的应用创建动态用户界面，而无需使用低级别的图形API，如OpenGL来获取高效的动画性能。</p>
+<h2 id="1-1-核心动画类"><a href="#1-1-核心动画类" class="headerlink" title="1.1 核心动画类"></a>1.1 核心动画类</h2><p>核心动画类有以下分类：</p>
+<ul>
+<li>提供显示内容的图层类。</li>
+<li>动画和计时类。</li>
+<li>布局和约束类。</li>
+<li>事务类，在原子更新的时候组合图层类。</li>
+</ul>
+<p>核心动画的基础类包含在Quartz核心框架（Quartz Core framework）里面，虽然它的其他图层类在其他框架里面定义。下图显示了核心动画的类层次结构。</p>
+<p><strong>图 1</strong>  Core Animation 类结构</p>
+<p> <a href="media/lk_class_hierarchy.jpg"><img src="media/lk_class_hierarchy.jpg" alt="" title="lk_class_hierarchy"></a></p>
+<h3 id="1-1-1-图层类（Layer-Classes）"><a href="#1-1-1-图层类（Layer-Classes）" class="headerlink" title="1.1.1 图层类（Layer Classes）"></a>1.1.1 图层类（Layer Classes）</h3><p>图层类是核心动画的核心基础，它提供了一套抽象的概念（假如你使用过NSView或者UIView的话，你一定会对它很熟悉）。CALayer是整个图层类的基础，它是所有核心动画图层类的父类。</p>
+<p>和视图类（NSView或UIView）一样,CALayer有自己的父图层类,同时也拥有自己子图层类的集合，它们构成了一个图层树的层次结构。图层绘制类似视图一样自底向上，并指定其几何形状相对他们superlayer，创建一个相对的局部坐标系。然而图层类通过合并变换矩阵允许你旋转、偏移、拉伸对应的图层内容。具体内容将会在后面“图层（Layer）的几何和变换”部分介绍。</p>
+<p>CALayer从Application Kit 和Cocoa Touch的视图类分离出来，因为没有必要为了显示内容而继承CALayer类。因为CALayer类的内容显示可以通过以下方法提供:</p>
+<ul>
+<li>可以直接或者委托的方式把图层的内容属性设置为Core Graphics image。</li>
+<li>提供直接绘制到一个Core Graphics image上下文委托。</li>
+<li>设置所有图层所具有的可视化样式属性，比如背景颜色、不透明属性、蒙版等。</li>
+</ul>
+<p>Mac OS X应用同样可以通过核心图像滤镜来访问它的可视化样式属性。</p>
+<p>继承CALayer并通过封装方法实现以上任何技术。</p>
+<p>“提供图层内容”描述了提供内容层可用方法。可视化样式样式属性和它们的顺序将会在 “图层样式属性”部分详细介绍。</p>
+<p>除了CALayer类，核心动画类同时提供了显示其他内容的类。这些类在Mac OS X 和 iOS上有细微的差别，以下类在Mac OS X和iOS上都可用:</p>
+<ul>
+<li><code>CAScrollLayer</code> 是CALayer的子类，简化显示图层的一部分内容。CAScrollLayer对象的滚动区域的范围在它的子图层里面定义。CAScrollLaye不提供键盘或鼠标事件处理，也不提供可见的滚动条。</li>
+<li><code>CATextLayer</code> 可以方便的从字符串或字符串的内容创建一个图层类的内容。</li>
+<li><code>CATiledLayer</code>允许递增的显示大而复杂的图片。</li>
+</ul>
+<p><strong>Mac OS X</strong> <strong>提供如下额外的类：</strong></p>
+<ul>
+<li><code>CAOpenGLLayer</code> 提供了一个OpenGL渲染环境。你必须继承这个类来使用OpenGL提供的内容。内容可以是静态的，或可随着时间的推移更新。</li>
+<li><code>QCCompositionLayer</code> （由Quartz框架提供）可以把Quartz合成的内容动画显示。</li>
+<li><code>QTMovieLayer and QTCaptureLayer</code> （QTKit框架提供）提供播放QuickTime影片和视频直播。</li>
+</ul>
+<p><strong>iOS </strong>提供如下额外的类<strong>:</strong></p>
+<ul>
+<li><code>CAEAGLLayer</code> 提供了一个OpenGLES渲染环境。</li>
+</ul>
+<p>CALayer的类引入键-值编码兼容的容器类概念，也就是说一个类可以使用键 - 值编码的方法存储任意值，而无需创建一个子类。CALayer的还扩展了NSKeyValueCoding的非正式协议，加入默认键值和额外的结构类型的自动对象包装（CGPoint，CGSize，CGRect，CGAffineTransform和CATransform3D）的支持，并提供许多这些结构的关键路径领域的访问。</p>
+<p>CALayer同时管理与层关联的动画和行为，。图层接受层树的插入和删除层动作，修改层的属性，或者明确的开发请求。这些行为通常会导致动画发生。见“动画”和“图层操作”的更多信息。</p>
+<h3 id="1-1-2-动画和计时类"><a href="#1-1-2-动画和计时类" class="headerlink" title="1.1.2    动画和计时类"></a>1.1.2    动画和计时类</h3><p>图层的很多可视化属性是可以隐式动画的。通过简单的改变图层的可动画显示的属性，可以让图层现有属性从当前值动画渐变到新的属性值。例如设置图层的hidden属性为YES将会触发动画使层逐渐淡出。大多数动画属性拥有自己关联的默认动画，你可以轻松地定制和替换。我们将会在后面“动画属性”部分列出一个完整的动画属性列表和它们相应的默认动画。动画的属性也可以显式动画。要显式动画的属性，你需要创建核心动画动画类的一个实例，并指定所需的视觉效果。显式动画不会改变该属性的值，它只是用于动画显示。</p>
+<p>核心动画的动画类使用基本的动画和关键帧动画把图层的内容和选取的属性动画的显示出来。所有核心动画的动画类都是从CAAnimation类继承而来。CAAnimation实现了CAMediaTiming协议，提供了动画的持续时间，速度，和重复计数。CAAnimation也实现了CAAction协议。该协议为图层触发一个动画动作提供了提供标准化响应。</p>
+<p>动画类同时定义了一个使用贝塞尔曲线来描述动画改变的时间函数。例如，一个匀速时间函数（linear timing function）在动画的整个生命周期里面一直保持速度不变，而渐缓时间函数（ease-out timing function）则在动画接近其生命周期的时候减慢速度。</p>
+<p>核心动画额外提供了一系列抽象的和细化的动画类，比如：</p>
+<p><code>CATransition</code>提供了一个图层变化的过渡效果，它能影响图层的整个内容。动画进行的时候淡入淡出（fade）、推（push）、显露(reveal)图层的内容。这些过渡效果可以扩展到你自己定制的Core Image滤镜。</p>
+<ul>
+<li><code>CAAnimationGroup</code>允许一系列动画效果组合在一起，并行显示动画。</li>
+<li><code>CAPropertyAnimation</code>是一个抽象的子类，它支持动画的显示图层的关键路径中指定的属性</li>
+<li><code>CABasicAnimation</code>简单的为图层的属性提供修改。</li>
+<li><code>CAKeyframeAnimation</code>支持关键帧动画，你可以指定的图层属性的关键路径动画，包括动画的每个阶段的价值，以及关键帧时间和计时功能的一系列值。在动画运行是，每个值被特定的插入值替代。</li>
+</ul>
+<p>核心动画 和 Cocoa Animation 同时使用这些动画类。使用动画描述，是因为这些类涉及到核心动画,这些将会在<a href="http://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Animation_Types_Timing/Introduction/Introduction.html#//apple_ref/doc/uid/TP40006166" target="_blank" rel="external">Animation Types and Timing Programming Guide</a> 有较深入的讨论。</p>
+<h3 id="1-1-3-布局管理器类"><a href="#1-1-3-布局管理器类" class="headerlink" title="1.1.3    布局管理器类"></a>1.1.3    布局管理器类</h3><p>Application Kit的视图类相对于superlayer提供了经典的“struts and springs”定位模型。图层类兼容这个模型，同时 Mac OS X上面的核心动画提供了一套更加灵活的布局管理机制，它允许开发者自己修改布局管理器。核心动画的 CAConstraint 类是一个布局管理器，它可以指定子图层类限制于你指定的约束集合。每个约束（CAConstraint类的实例封装）描述层的几何属性（左，右，顶部或底部的边缘或水平或垂直中心）的关系，关系到其同级之一的几何属性层或superlayer。</p>
+<p>通用的布局管理器和约束性布局管理器将会在“布局核心动画的图层”部分讨论。</p>
+<h3 id="1-1-4-事务管理类"><a href="#1-1-4-事务管理类" class="headerlink" title="1.1.4    事务管理类"></a>1.1.4    事务管理类</h3><p>图层的动画属性的每一个修改必然是事务的一个部分。CATransaction是核心动画里面负责协调多个动画原子更新显示操作。事务支持嵌套使用。</p>
+<p>核心动画支持两种事务:<strong>隐式事务</strong>和<strong>显式事务</strong>。在图层的动画属性被一个线程修改，同时该线程下次迭代的时候自动提交该修改的时候隐式事务自动创建。显式事务发生在程序在修改动画属性之前给CATransaction发送了一个开始消息，在动画属性修改之后提交该消息。</p>
+<p>事务管理将会在后面的“事务”部分详细介绍。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/15/小知识点总结/" rel="next" title="小知识点总结">
+                <i class="fa fa-chevron-left"></i> 小知识点总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/15/Swift3.0学习笔记/" rel="prev" title="Swift3.0学习笔记">
+                Swift3.0学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/100.gif"
+               alt="CoderShmily" />
+          <p class="site-author-name" itemprop="name">CoderShmily</p>
+           
+              <p class="site-description motion-element" itemprop="description">╰☆清风徐来，水波不兴☆╮</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CoderShmily" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/p/1005052341994265" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-核心动画概念"><span class="nav-number">1.</span> <span class="nav-text">第一章      核心动画概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-核心动画类"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 核心动画类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-图层类（Layer-Classes）"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 图层类（Layer Classes）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-动画和计时类"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2    动画和计时类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-布局管理器类"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.1.3    布局管理器类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-事务管理类"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.1.4    事务管理类</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderShmily</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://codershmily.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://codershmily.github.io/2015/10/09/CoreAnimation编程指南(一)概念/';
+          this.page.identifier = '2015/10/09/CoreAnimation编程指南(一)概念/';
+          this.page.title = 'CoreAnimation编程指南(一)概念';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://codershmily.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
