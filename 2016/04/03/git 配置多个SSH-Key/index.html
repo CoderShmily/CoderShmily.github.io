@@ -92,13 +92,13 @@
 
 <meta name="description" content="我们在日常工作中会遇到公司有个gitlab，还有些自己的一些项目放在github上。这样就导致我们要配置不同的ssh-key对应不同的环境。下面我们来看看具体的操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git 配置多个SSH-Key">
+<meta property="og:title" content="Git 配置多个SSH-Key">
 <meta property="og:url" content="http://codershmily.github.io/2016/04/03/git 配置多个SSH-Key/index.html">
 <meta property="og:site_name" content="CoderShmily's Blog">
 <meta property="og:description" content="我们在日常工作中会遇到公司有个gitlab，还有些自己的一些项目放在github上。这样就导致我们要配置不同的ssh-key对应不同的环境。下面我们来看看具体的操作">
-<meta property="og:updated_time" content="2017-05-11T03:14:14.000Z">
+<meta property="og:updated_time" content="2017-05-11T03:20:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git 配置多个SSH-Key">
+<meta name="twitter:title" content="Git 配置多个SSH-Key">
 <meta name="twitter:description" content="我们在日常工作中会遇到公司有个gitlab，还有些自己的一些项目放在github上。这样就导致我们要配置不同的ssh-key对应不同的环境。下面我们来看看具体的操作">
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>git 配置多个SSH-Key | CoderShmily's Blog</title>
+  <title>Git 配置多个SSH-Key | CoderShmily's Blog</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">git 配置多个SSH-Key</h1>
+          <h1 class="post-title" itemprop="name headline">Git 配置多个SSH-Key</h1>
         
 
         <div class="post-meta">
@@ -394,20 +394,20 @@
       
         <p>我们在日常工作中会遇到公司有个gitlab，还有些自己的一些项目放在github上。这样就导致我们要配置不同的ssh-key对应不同的环境。下面我们来看看具体的操作</p>
 <a id="more"></a>
-<h2 id="生成一个公司用的SSH-Key"><a href="#生成一个公司用的SSH-Key" class="headerlink" title="生成一个公司用的SSH-Key"></a>生成一个公司用的SSH-Key</h2> <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@yourcompany.com” -f ~/.ssh/id-rsa</span></div></pre></td></tr></table></figure>
+<h2 id="生成一个公司用的SSH-Key"><a href="#生成一个公司用的SSH-Key" class="headerlink" title="生成一个公司用的SSH-Key"></a>生成一个公司用的SSH-Key</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;youremail@yourcompany.com” -f ~/.ssh/id-rsa</div></pre></td></tr></table></figure>
 <p> 在~/.ssh/目录会生成id-rsa和id-rsa.pub私钥和公钥。 我们将id-rsa.pub中的内容粘帖到公司gitlab服务器的SSH-key的配置中。</p>
-<h2 id="生成一个github用的SSH-Key"><a href="#生成一个github用的SSH-Key" class="headerlink" title="生成一个github用的SSH-Key"></a>生成一个github用的SSH-Key</h2> <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@your.com” -f ~/.ssh/github-rsa</span></div></pre></td></tr></table></figure>
+<h2 id="生成一个github用的SSH-Key"><a href="#生成一个github用的SSH-Key" class="headerlink" title="生成一个github用的SSH-Key"></a>生成一个github用的SSH-Key</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;youremail@your.com” -f ~/.ssh/github-rsa</div></pre></td></tr></table></figure>
 <p> 在~/.ssh/目录会生成github-rsa和github-rsa.pub私钥和公钥。 我们将github-rsa.pub中的内容粘帖到github服务器的SSH-key的配置中。</p>
-<h2 id="添加私钥"><a href="#添加私钥" class="headerlink" title="添加私钥"></a>添加私钥</h2> <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa $ ssh-add ~/.ssh/github_rsa</div></pre></td></tr></table></figure>
+<h2 id="添加私钥"><a href="#添加私钥" class="headerlink" title="添加私钥"></a>添加私钥</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa $ ssh-add ~/.ssh/github_rsa</div></pre></td></tr></table></figure>
 <p>如果执行ssh-add时提示”Could not open a connection to your authentication agent”，可以现执行命令：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-agent bash</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-agent bash</div></pre></td></tr></table></figure>
 <p>然后再运行ssh-add命令</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 可以通过 ssh-add -l 来确私钥列表</span></div><div class="line">$ ssh-add -l</div><div class="line"><span class="meta"># 可以通过 ssh-add -D 来清空私钥列表</span></div><div class="line">$ ssh-add -D</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 可以通过 ssh-add -l 来确私钥列表</div><div class="line">$ ssh-add -l</div><div class="line"># 可以通过 ssh-add -D 来清空私钥列表</div><div class="line">$ ssh-add -D</div></pre></td></tr></table></figure>
 <h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>在 ~/.ssh 目录下新建一个config文件</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch config</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch config</div></pre></td></tr></table></figure>
 <p>添加内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># gitlab</div><div class="line">Host gitlab.com</div><div class="line">    HostName gitlab.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/id_rsa</div><div class="line"># github</div><div class="line">Host github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/github_rsa</div></pre></td></tr></table></figure>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
 <p>输出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hi XXX! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div></pre></td></tr></table></figure>
 <p>就表示成功的连上github了.也可以试试链接公司的gitlab.</p>
@@ -764,7 +764,7 @@
         var disqus_config = function () {
           this.page.url = 'http://codershmily.github.io/2016/04/03/git 配置多个SSH-Key/';
           this.page.identifier = '2016/04/03/git 配置多个SSH-Key/';
-          this.page.title = 'git 配置多个SSH-Key';
+          this.page.title = 'Git 配置多个SSH-Key';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://codershmily.disqus.com/embed.js';
