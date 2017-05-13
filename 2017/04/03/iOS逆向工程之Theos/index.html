@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://opgilmcn7.bkt.clouddn.com/2017-05-12-Snip20170512_13.png">
 <meta property="og:image" content="http://opgilmcn7.bkt.clouddn.com/2017-05-12-Snip20170512_14.png">
 <meta property="og:image" content="http://opgilmcn7.bkt.clouddn.com/2017-05-12-14946043645913.png">
-<meta property="og:updated_time" content="2017-05-13T01:50:13.000Z">
+<meta property="og:updated_time" content="2017-05-13T06:08:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS逆向之Theos基础到实战">
 <meta name="twitter:description" content="Theos是一个越狱开发工具包，Theos是越狱开发工具的首先，因为其最大的特点就是简单。大道至简，Theos的下载安装、编译发布都比较简单，越狱开发中另一个常用的工具是iOSOpenDev，因为本篇的主题是Theos，所以对iOSOpenDev不做过多赘述。本篇博客的主题是Thoes的安装及其使用。">
@@ -491,7 +491,7 @@
 <p>使用 optool 把 Test.dylib 注入到二进制文件中：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">optool install -c load -p &quot;@executable_path/Test.dylib&quot; -t /Users/shmily/test/.theos/obj/debug/微信-6.5.7\(越狱应用\)/Payload/WeChat.app/WeChat</div></pre></td></tr></table></figure>
 <p><img src="http://opgilmcn7.bkt.clouddn.com/2017-05-12-Snip20170512_13.png" alt="Snip20170512_13"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在开始打包之前，请先将 WeChat.app 里面的 Watch 目录删除，这个目录是跟 Watch 有关的，如果不删除的话，会导致后继的安装步骤出问题。出现 A WatchKit app within this app is not a valid bundle 的错误。</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在开始打包之前，请先将 WeChat.app 里面的 Watch 目录删除，这个目录是跟 Watch 有关的，如果不删除的话，会导致后继的安装步骤出问题。</div><div class="line">出现 A WatchKit app within this app is not a valid bundle 的错误。</div></pre></td></tr></table></figure>
 <h3 id="打包并重签名"><a href="#打包并重签名" class="headerlink" title="打包并重签名"></a>打包并重签名</h3><p>打包 ipa 与重签名可以直接使用图形化工具 <a href="https://github.com/DanTheMan827/ios-app-signer" target="_blank" rel="external">ios-app-signer</a> 来完成。</p>
 <p>这个工具可以自动加载出本机的证书以及 Provisioning Profile 文件，使用起来十分方便，当然也可以手动选择证书文件。</p>
 <p><img src="http://opgilmcn7.bkt.clouddn.com/2017-05-12-Snip20170512_14.png" alt="Snip20170512_14"></p>
@@ -634,7 +634,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
