@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://opgilmcn7.bkt.clouddn.com/2017-05-12-Snip20170512_13.png">
 <meta property="og:image" content="http://opgilmcn7.bkt.clouddn.com/2017-05-12-Snip20170512_14.png">
 <meta property="og:image" content="http://opgilmcn7.bkt.clouddn.com/2017-05-12-14946043645913.png">
-<meta property="og:updated_time" content="2017-05-13T01:22:38.000Z">
+<meta property="og:updated_time" content="2017-05-13T01:23:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS逆向工程之Theos">
 <meta name="twitter:description" content="Theos是一个越狱开发工具包，Theos是越狱开发工具的首先，因为其最大的特点就是简单。大道至简，Theos的下载安装、编译发布都比较简单，越狱开发中另一个常用的工具是iOSOpenDev，因为本篇的主题是Theos，所以对iOSOpenDev不做过多赘述。本篇博客的主题是Thoes的安装及其使用。">
@@ -450,9 +450,9 @@
 <h3 id="control文件"><a href="#control文件" class="headerlink" title="control文件"></a>control文件</h3><p>control文件中存储的内容记录了deb包管理系统所需的基本信息，会被打包进deb包里。下方就是control中内容，其中存储的就是一些包名、工程名、版本、作者等等，与打包安装后在Cydia中看到的信息相同。<br><img src="http://opgilmcn7.bkt.clouddn.com/2017-05-12-14945997268064.png" alt=""></p>
 <h3 id="进行编译、打包、安装"><a href="#进行编译、打包、安装" class="headerlink" title="进行编译、打包、安装"></a>进行编译、打包、安装</h3><p>编译打包安装的过程与上一部分类型，在此就只展示一下过程，不做过多赘述了。</p>
 <ul>
-<li>使用make命令进行编译</li>
-<li>打包：make package</li>
-<li>安装到手机： make install</li>
+<li>编译 <code>make</code></li>
+<li>打包<code>make package</code></li>
+<li>安装到手机<code>make install</code></li>
 </ul>
 <h3 id="从Cydia中进行查看-1"><a href="#从Cydia中进行查看-1" class="headerlink" title="从Cydia中进行查看"></a>从Cydia中进行查看</h3><p>下方就是我们成功安装后在Cydia中查看的截图，安装成功后，当你锁屏时就会弹出一个Alter。<br><img src="http://opgilmcn7.bkt.clouddn.com/2017-05-12-14945998013235.png" alt=""></p>
 <h2 id="免越狱安装注入dylib的App"><a href="#免越狱安装注入dylib的App" class="headerlink" title="免越狱安装注入dylib的App"></a>免越狱安装注入dylib的App</h2><p>创建完Tweak工程编译后，在.theos文件层级下面生成了dylib文件<br><img src="http://opgilmcn7.bkt.clouddn.com/2017-05-12-Snip20170512_8.png" alt="Snip20170512_8"></p>
